@@ -79,6 +79,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-46f871f81a6041429fe967d4991c6298.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/bootstrap/bootstrap-dark-91566800c91f24551cce427e89ae5617.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -117,8 +119,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
     const options = {
       valueNames: ['listing-image','listing-date','listing-title','listing-author','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: [],
+      page: 18,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -327,13 +330,13 @@ window.Quarto = {
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p style="text-align: justify">
-<img src="../../dsandml/dataengineering/sm.png" align="right" width="400" height="450" style="align-right; margin-left:20px"> Suppose we are working on a data science project and the data contains both contineous and categorical variables. For example, we want to build a predictive model for a life insurance company. The model will predict the annual company spending on individuals depending on their age, bmi, sex, smoking habit, number of children, and region in the US where the belong. So here, our target variable is a contineous variable and the feature variables contain both contineous and categorical variables.<br> <br> To understand how important each feature is, there are many possible ways. For example, when we do the exploratory data analysis (EDA) we can do some plotting to see how each feature inteacts with the target variable, or maybe calculating correlations of the features and target variables. However, when the feature is contineous it is not a big issue to calculate the correlation matrix. But when the feature is categorical or ordinal, for example, in this predictive modeling case, how do we know if the number of children or smoking habit have impact on insurance charges? Plotting <code>boxplot</code> or <code>countplot</code> from the <code>seaborn</code> or any other library may help, give some primary idea. But how do we quantify the correlations?<br> <br> Here comes the statistical method one-way <strong><em>Analysis of Variances (ANOVA)</em></strong> among many other alternatives. Machine libraries like <code>scipy</code> has built-in functions that can compute the ANOVA’s for each categorical feature. We will see the implementation of this at the end of this post. This blog post is about the simple explanation of the mathematics behind the ANOVA method.
+<img src="../../posts/dataengineering/sm.png" align="right" width="400" height="450" style="align-right; margin-left:20px"> Suppose we are working on a data science project and the data contains both contineous and categorical variables. For example, we want to build a predictive model for a life insurance company. The model will predict the annual company spending on individuals depending on their age, bmi, sex, smoking habit, number of children, and region in the US where the belong. So here, our target variable is a contineous variable and the feature variables contain both contineous and categorical variables.<br> <br> To understand how important each feature is, there are many possible ways. For example, when we do the exploratory data analysis (EDA) we can do some plotting to see how each feature inteacts with the target variable, or maybe calculating correlations of the features and target variables. However, when the feature is contineous it is not a big issue to calculate the correlation matrix. But when the feature is categorical or ordinal, for example, in this predictive modeling case, how do we know if the number of children or smoking habit have impact on insurance charges? Plotting <code>boxplot</code> or <code>countplot</code> from the <code>seaborn</code> or any other library may help, give some primary idea. But how do we quantify the correlations?<br> <br> Here comes the statistical method one-way <strong><em>Analysis of Variances (ANOVA)</em></strong> among many other alternatives. Machine libraries like <code>scipy</code> has built-in functions that can compute the ANOVA’s for each categorical feature. We will see the implementation of this at the end of this post. This blog post is about the simple explanation of the mathematics behind the ANOVA method.
 </p>
 </section>
 <section id="anova" class="level2">
 <h2 class="anchored" data-anchor-id="anova">ANOVA</h2>
 <p>This is the 5 random sample <a href="[www.kaggle.com/datasets/mirichoi0218/insurance/data](https://www.kaggle.com/datasets/harshsingh2209/medical-insurance-payout)" target="_blank" style="text-decoration:none">data</a> that we are talking about. We will use this data to explain the mathematical formulation of the model.</p>
-<div id="b11e6bd1" class="cell" data-execution_count="1">
+<div id="fa025112" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'insurance.csv'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.sample(<span class="dv">5</span>, random_state<span class="op">=</span><span class="dv">111</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -347,7 +350,7 @@ window.Quarto = {
 </div>
 </div>
 <p>We will explain the method using the feature <code>children</code>.</p>
-<div id="91c1217f" class="cell" data-execution_count="2">
+<div id="9341248a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>child <span class="op">=</span> data.children.value_counts().sort_index()</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>c0<span class="op">=</span>data[data[<span class="st">'children'</span>]<span class="op">==</span><span class="dv">0</span>].charges.values.tolist()</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>c1<span class="op">=</span>data[data[<span class="st">'children'</span>]<span class="op">==</span><span class="dv">1</span>].charges.values.tolist()</span>
@@ -404,7 +407,7 @@ window.Quarto = {
 <p style="text-align: justify">
 The main purpose of one-sided ANOVA is to act as a judge like in a court house. It assumes that there is no variation in any group. All group has the same mean. So it sets a null hypthesis and declares that there is no difference in the groups whereas the alternative is set to the opposite. Let’s see what happens to our data
 </p>
-<div id="3d05dbd8" class="cell" data-execution_count="3">
+<div id="d1829c49" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <table class="caption-top table">
@@ -442,20 +445,28 @@ The main purpose of one-sided ANOVA is to act as a judge like in a court house. 
 </tbody>
 </table>
 <p><strong>Share on</strong></p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/dataengineering/" target="_blank" style="color:#1877F2; text-decoration: none;"></a></p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/dataengineering/" target="_blank" style="color:#1877F2; text-decoration: none;">
+<p><i class="fa-brands fa-facebook fa-3x" aria-label="facebook"></i></p>
+</a><p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/dataengineering/" target="_blank" style="color:#1877F2; text-decoration: none;"></a></p>
+</div><div class="column" style="width:33%;">
+<p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/dataengineering/" target="_blank" style="color:#0077B5; text-decoration: none;"></a></p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/dataengineering/" target="_blank" style="color:#0077B5; text-decoration: none;">
+<p><i class="fa-brands fa-linkedin fa-3x" aria-label="linkedin"></i></p>
+</a><p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/dataengineering/" target="_blank" style="color:#0077B5; text-decoration: none;"></a></p>
+</div><div class="column" style="width:33%;">
+<p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/dataengineering/" target="_blank" style="color:#1DA1F2; text-decoration: none;"></a></p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/dataengineering/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
+<p><i class="fa-brands fa-twitter fa-3x" aria-label="twitter"></i></p>
+</a><p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/dataengineering/" target="_blank" style="color:#1DA1F2; text-decoration: none;"></a></p>
+</div>
+</div>
+<script src="https://giscus.app/client.js" data-repo="mrislambd/mrislambd.github.io" data-repo-id="R_kgDOMV8crA" data-category="Announcements" data-category-id="DIC_kwDOMV8crM4CjbQW" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
 <div id="fb-root">
 
 </div>
 <script async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v20.0"></script>
-<div class="share-buttons">
-<div class="fb-share-button" data-href="https://mrislambd.github.io/posts/dataengineering/" data-layout="button_count" data-size="small">
-<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmrislambd.github.io%2Fposts%2Fdataengineering%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
-</div>
-<script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
-<script type="IN/Share" data-url="https://mrislambd.github.io/posts/dataengineering/"></script>
-<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-url="https://mrislambd.github.io/posts/dataengineering/" data-show-count="true">Tweet</a>
-<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-<div class="fb-comments" data-href="https://mrislambd.github.io/posts/dataengineering/" data-width="" data-numposts="5">
+<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/posts/dataengineering/" data-width="750" data-numposts="5">
 
 </div>
 <p><strong>You may also like</strong></p>
@@ -469,7 +480,79 @@ The main purpose of one-sided ANOVA is to act as a judge like in a court house. 
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-
+<div class="g-col-1" data-index="0" data-categories="TWFjaGluZSUyMExlYXJuaW5nJTJDRGF0YSUyMFNjaWVuY2UlMkNCYXllc2lhbiUyMEluZmVyZW5jZSUyQ0JheWVzaWFuJTIwU3RhdGlzdGljcyUyQ1N0YXRpc3RpY3M=" data-listing-date-sort="1729555200000" data-listing-file-modified-sort="1742014688633" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2300">
+<a href="../../posts/bayesianclassification/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../../posts/bayesianclassification/Bayeslearn.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Bayesian Probabilistic Models for Classification
+</h5>
+<div class="listing-reading-time card-text text-muted">
+12 min
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rafiq Islam
+</div>
+<div class="listing-date">
+Tuesday, October 22, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="TWFjaGluZSUyMExlYXJuaW5nJTJDRGF0YSUyMFNjaWVuY2UlMkNCYXllc2lhbiUyMEluZmVyZW5jZSUyQ0JheWVzaWFuJTIwU3RhdGlzdGljcyUyQ1N0YXRpc3RpY3M=" data-listing-date-sort="1733097600000" data-listing-file-modified-sort="1742014688632" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1271">
+<a href="../../posts/adaboost/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../../posts/adaboost/ada1.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Boosting Algorithm: Adaptive Boosting Method (AdaBoost)
+</h5>
+<div class="listing-reading-time card-text text-muted">
+7 min
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rafiq Islam
+</div>
+<div class="listing-date">
+Monday, December 2, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="U3RhdGlzdGljcyUyQ0RhdGElMjBTY2llbmNlJTJDRGF0YSUyMEVuZ2luZWVyaW5nJTJDTWFjaGluZSUyMExlYXJuaW5nJTJDQXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZQ==" data-listing-date-sort="1728518400000" data-listing-file-modified-sort="1742014688702" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2365">
+<a href="../../posts/naivebayes/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="../bayesianclassification/Bayeslearn.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Classification using Naive Bayes algorithm
+</h5>
+<div class="listing-reading-time card-text text-muted">
+12 min
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rafiq Islam
+</div>
+<div class="listing-date">
+Thursday, October 10, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
@@ -1108,7 +1191,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> sm.png</span></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="an">lightbox:</span><span class="co"> true</span></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="an">listing:</span><span class="co"> </span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">    contents: "/../../dsandml"</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">    contents: "/../../posts"</span></span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">    max-items: 3</span></span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">    type: grid</span></span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">    categories: false</span></span>
@@ -1121,7 +1204,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>&lt;/p&gt;</span>
 <span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction  </span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>&lt;p style="text-align: justify"&gt; &lt;img src="/dsandml/dataengineering/sm.png" align="right" width="400" height= "450" style="align-right; margin-left:20px"/&gt;</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>&lt;p style="text-align: justify"&gt; &lt;img src="/posts/dataengineering/sm.png" align="right" width="400" height= "450" style="align-right; margin-left:20px"/&gt;</span>
 <span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    Suppose we are working on a data science project and the data contains both contineous and categorical variables. For example, we want to build a predictive model for a life insurance company. The model will predict the annual company spending on individuals depending on their age, bmi, sex, smoking habit, number of children, and region in the US where the belong. So here, our target variable is a contineous variable and the feature variables contain both contineous and categorical variables.&lt;br&gt;</span>
 <span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    &lt;br&gt;</span>
 <span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    To understand how important each feature is, there are many possible ways. For example, when we do the exploratory data analysis (EDA) we can do some plotting to see how each feature inteacts with the target variable, or maybe calculating correlations of the features and target variables. However, when the feature is contineous it is not a big issue to calculate the correlation matrix. But when the feature is categorical or ordinal, for example, in this predictive modeling case, how do we know if the number of children or smoking habit have impact on insurance charges? Plotting <span class="in">`boxplot`</span> or <span class="in">`countplot`</span> from the <span class="in">`seaborn`</span> or any other library may help, give some primary idea. But how do we quantify the correlations?&lt;br&gt;</span>
@@ -1192,30 +1275,56 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>**Share on**  </span>
 <span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>&lt;div id="fb-root"&gt;&lt;/div&gt;</span>
-<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>&lt;script async defer crossorigin="anonymous"</span>
-<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a> src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v20.0"&gt;&lt;/script&gt;</span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>::::{.columns}</span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/dataengineering/" target="_blank" style="color:#1877F2; text-decoration: none;"&gt;</span>
 <span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a>&lt;div class="share-buttons"&gt;</span>
-<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a>&lt;div class="fb-share-button" data-href="https://mrislambd.github.io/posts/dataengineering/"</span>
-<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>data-layout="button_count" data-size="small"&gt;&lt;a target="_blank" </span>
-<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a> href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmrislambd.github.io%2Fposts%2Fdataengineering%2F<span class="dv">&amp;amp;</span>src=sdkpreparse" </span>
-<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a> class="fb-xfbml-parse-ignore"&gt;Share&lt;/a&gt;&lt;/div&gt;</span>
-<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a>&lt;script src="https://platform.linkedin.com/in.js" type="text/javascript"&gt;lang<span class="op">:</span> en_US&lt;/script&gt;</span>
-<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a>&lt;script type="IN/Share" data-url="https://mrislambd.github.io/posts/dataengineering/"&gt;&lt;/script&gt; </span>
-<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" </span>
-<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a> data-url="https://mrislambd.github.io/posts/dataengineering/" data-show-count="true"&gt;Tweet&lt;/a&gt;</span>
-<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a>&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;</span>
-<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a>&lt;/div&gt;</span>
-<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a>&lt;div class="fb-comments" data-href="https://mrislambd.github.io/posts/dataengineering/"</span>
-<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a> data-width="" data-numposts="5"&gt;&lt;/div&gt;</span>
-<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a>**You may also like**</span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a>{{&lt; fa brands facebook size=3x &gt;}}</span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a>&lt;/a&gt;</span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/dataengineering/" target="_blank" style="color:#0077B5; text-decoration: none;"&gt;</span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a>{{&lt; fa brands linkedin size=3x &gt;}}</span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a>&lt;/a&gt;</span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
+<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/dataengineering/" target="_blank" style="color:#1DA1F2; text-decoration: none;"&gt;</span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a>{{&lt; fa brands twitter size=3x &gt;}}</span>
+<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a>&lt;/a&gt;</span>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a>&lt;script src="https://giscus.app/client.js"</span>
+<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a>        data-repo="mrislambd/mrislambd.github.io" </span>
+<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a>        data-repo-id="R_kgDOMV8crA"</span>
+<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a>        data-category="Announcements"</span>
+<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a>        data-category-id="DIC_kwDOMV8crM4CjbQW"</span>
+<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a>        data-mapping="pathname"</span>
+<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a>        data-strict="0"</span>
+<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a>        data-reactions-enabled="1"</span>
+<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a>        data-emit-metadata="0"</span>
+<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a>        data-input-position="bottom"</span>
+<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a>        data-theme="light"</span>
+<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a>        data-lang="en"</span>
+<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a>        crossorigin="anonymous"</span>
+<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a>        async&gt;</span>
+<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a>&lt;/script&gt;</span>
+<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a>&lt;div id="fb-root"&gt;&lt;/div&gt;</span>
+<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a>&lt;script async defer crossorigin="anonymous"</span>
+<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a> src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v20.0"&gt;&lt;/script&gt;</span>
+<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>&lt;div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/posts/dataengineering/" data-width="750" data-numposts="5"&gt;&lt;/div&gt;</span>
+<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a>**You may also like**</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

@@ -122,8 +122,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
     const options = {
       valueNames: ['listing-image','listing-date','listing-title','listing-author','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-categories"],
+      page: 18,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -290,7 +291,7 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(0)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(235)</span></div><div class="category" data-category="QWxnb3JpdGhtcw==">Algorithms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZQ==">Artificial Intelligence <span class="quarto-category-count">(20)</span></div><div class="category" data-category="QmF5ZXNpYW4lMjBJbmZlcmVuY2U=">Bayesian Inference <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QmF5ZXNpYW4lMjBTdGF0aXN0aWNz">Bayesian Statistics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGF0YSUyMEVuZ2luZWVyaW5n">Data Engineering <span class="quarto-category-count">(10)</span></div><div class="category" data-category="RGF0YSUyMFNjaWVuY2U=">Data Science <span class="quarto-category-count">(22)</span></div><div class="category" data-category="TWFjaGluZSUyMExlYXJuaW5n">Machine Learning <span class="quarto-category-count">(22)</span></div><div class="category" data-category="UHJvZ3JhbW1pbmc=">Programming <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHlUb3JjaA==">PyTorch <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3RhdGlzdGljcw==">Statistics <span class="quarto-category-count">(4)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -485,7 +486,7 @@ F(x) &amp;= \left(\alpha_1 \cdot h_1(x) + \alpha_2 \cdot h_2(x)\right)\\
 &amp; = [-1, 1, -1, -1]
 \end{align*}\]</span></p>
 <p>If we keep iterating this way, we will have</p>
-<div id="b86ce0bd" class="cell" data-execution_count="1">
+<div id="7fc25fe4" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -573,17 +574,17 @@ Now it’s time to write the formal algorithm for Adaptive Boosting or AdaBoost 
 <p><strong>Share on</strong></p>
 <div class="columns">
 <div class="column" style="width:33%;">
-<p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/adaboost/" target="_blank" style="color:#1877F2; text-decoration: none;"></a></p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/adaboost/" target="_blank" style="color:#1877F2; text-decoration: none;">
+<p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/adaboost/" target="_blank" style="color:#1877F2; text-decoration: none;"></a></p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/adaboost/" target="_blank" style="color:#1877F2; text-decoration: none;">
 <p><i class="fa-brands fa-facebook fa-3x" aria-label="facebook"></i></p>
-</a><p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/adaboost/" target="_blank" style="color:#1877F2; text-decoration: none;"></a></p>
+</a><p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/adaboost/" target="_blank" style="color:#1877F2; text-decoration: none;"></a></p>
 </div><div class="column" style="width:33%;">
-<p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/adaboost/" target="_blank" style="color:#0077B5; text-decoration: none;"></a></p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/adaboost/" target="_blank" style="color:#0077B5; text-decoration: none;">
+<p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/adaboost/" target="_blank" style="color:#0077B5; text-decoration: none;"></a></p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/adaboost/" target="_blank" style="color:#0077B5; text-decoration: none;">
 <p><i class="fa-brands fa-linkedin fa-3x" aria-label="linkedin"></i></p>
-</a><p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/adaboost/" target="_blank" style="color:#0077B5; text-decoration: none;"></a></p>
+</a><p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/adaboost/" target="_blank" style="color:#0077B5; text-decoration: none;"></a></p>
 </div><div class="column" style="width:33%;">
-<p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/adaboost/" target="_blank" style="color:#1DA1F2; text-decoration: none;"></a></p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/adaboost/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
+<p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/adaboost/" target="_blank" style="color:#1DA1F2; text-decoration: none;"></a></p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/adaboost/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
 <p><i class="fa-brands fa-twitter fa-3x" aria-label="twitter"></i></p>
-</a><p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/adaboost/" target="_blank" style="color:#1DA1F2; text-decoration: none;"></a></p>
+</a><p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/adaboost/" target="_blank" style="color:#1DA1F2; text-decoration: none;"></a></p>
 </div>
 </div>
 <script src="https://giscus.app/client.js" data-repo="mrislambd/mrislambd.github.io" data-repo-id="R_kgDOMV8crA" data-category="Announcements" data-category-id="DIC_kwDOMV8crM4CjbQW" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
@@ -592,7 +593,7 @@ Now it’s time to write the formal algorithm for Adaptive Boosting or AdaBoost 
 
 </div>
 <script async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v20.0"></script>
-<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/adaboost/" data-width="750" data-numposts="5">
+<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/posts/adaboost/" data-width="750" data-numposts="5">
 
 </div>
 <p><strong>You may also like</strong></p>
@@ -605,7 +606,79 @@ Now it’s time to write the formal algorithm for Adaptive Boosting or AdaBoost 
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-
+<div class="g-col-1" data-index="0" data-categories="TWFjaGluZSUyMExlYXJuaW5nJTJDRGF0YSUyMFNjaWVuY2UlMkNCYXllc2lhbiUyMEluZmVyZW5jZSUyQ0JheWVzaWFuJTIwU3RhdGlzdGljcyUyQ1N0YXRpc3RpY3M=" data-listing-date-sort="1729555200000" data-listing-file-modified-sort="1742014688633" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2300">
+<a href="../../posts/bayesianclassification/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../../posts/bayesianclassification/Bayeslearn.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Bayesian Probabilistic Models for Classification
+</h5>
+<div class="listing-reading-time card-text text-muted">
+12 min
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rafiq Islam
+</div>
+<div class="listing-date">
+Tuesday, October 22, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="U3RhdGlzdGljcyUyQ0RhdGElMjBTY2llbmNlJTJDRGF0YSUyMEVuZ2luZWVyaW5nJTJDTWFjaGluZSUyMExlYXJuaW5nJTJDQXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZQ==" data-listing-date-sort="1728518400000" data-listing-file-modified-sort="1742014688702" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2365">
+<a href="../../posts/naivebayes/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="../bayesianclassification/Bayeslearn.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Classification using Naive Bayes algorithm
+</h5>
+<div class="listing-reading-time card-text text-muted">
+12 min
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rafiq Islam
+</div>
+<div class="listing-date">
+Thursday, October 10, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="RGF0YSUyMFNjaWVuY2UlMkNNYWNoaW5lJTIwTGVhcm5pbmclMkNBcnRpZmljaWFsJTIwSW50ZWxsaWdlbmNlJTJDRGF0YSUyMEVuZ2luZWVyaW5n" data-listing-date-sort="1729123200000" data-listing-file-modified-sort="1742014688698" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="27" data-listing-word-count-sort="5383">
+<a href="../../posts/lda/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../../posts/lda/lda.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Classification: Linear Discriminant Analysis (LDA)
+</h5>
+<div class="listing-reading-time card-text text-muted">
+27 min
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rafiq Islam
+</div>
+<div class="listing-date">
+Thursday, October 17, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
@@ -1244,7 +1317,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> ada1.png</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="an">search:</span><span class="co"> true</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="an">listing:</span><span class="co"> </span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">    contents: "/../../dsandml"</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">    contents: "/../../posts"</span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">    max-items: 3</span></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">    type: grid</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">    categories: true</span></span>
@@ -1505,7 +1578,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-271"><a href="#cb2-271" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-272"><a href="#cb2-272" aria-hidden="true" tabindex="-1"></a>::::{.columns}</span>
 <span id="cb2-273"><a href="#cb2-273" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
-<span id="cb2-274"><a href="#cb2-274" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/adaboost/" target="_blank" style="color:#1877F2; text-decoration: none;"&gt;</span>
+<span id="cb2-274"><a href="#cb2-274" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/adaboost/" target="_blank" style="color:#1877F2; text-decoration: none;"&gt;</span>
 <span id="cb2-275"><a href="#cb2-275" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb2-276"><a href="#cb2-276" aria-hidden="true" tabindex="-1"></a>{{&lt; fa brands facebook size=3x &gt;}}</span>
 <span id="cb2-277"><a href="#cb2-277" aria-hidden="true" tabindex="-1"></a>&lt;/a&gt;</span>
@@ -1513,7 +1586,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-279"><a href="#cb2-279" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb2-280"><a href="#cb2-280" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb2-281"><a href="#cb2-281" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
-<span id="cb2-282"><a href="#cb2-282" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/adaboost/" target="_blank" style="color:#0077B5; text-decoration: none;"&gt;</span>
+<span id="cb2-282"><a href="#cb2-282" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/adaboost/" target="_blank" style="color:#0077B5; text-decoration: none;"&gt;</span>
 <span id="cb2-283"><a href="#cb2-283" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb2-284"><a href="#cb2-284" aria-hidden="true" tabindex="-1"></a>{{&lt; fa brands linkedin size=3x &gt;}}</span>
 <span id="cb2-285"><a href="#cb2-285" aria-hidden="true" tabindex="-1"></a>&lt;/a&gt;</span>
@@ -1521,7 +1594,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-287"><a href="#cb2-287" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb2-288"><a href="#cb2-288" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb2-289"><a href="#cb2-289" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
-<span id="cb2-290"><a href="#cb2-290" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/adaboost/" target="_blank" style="color:#1DA1F2; text-decoration: none;"&gt;</span>
+<span id="cb2-290"><a href="#cb2-290" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/adaboost/" target="_blank" style="color:#1DA1F2; text-decoration: none;"&gt;</span>
 <span id="cb2-291"><a href="#cb2-291" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb2-292"><a href="#cb2-292" aria-hidden="true" tabindex="-1"></a>{{&lt; fa brands twitter size=3x &gt;}}</span>
 <span id="cb2-293"><a href="#cb2-293" aria-hidden="true" tabindex="-1"></a>&lt;/a&gt;</span>
@@ -1548,7 +1621,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-314"><a href="#cb2-314" aria-hidden="true" tabindex="-1"></a>&lt;div id="fb-root"&gt;&lt;/div&gt;</span>
 <span id="cb2-315"><a href="#cb2-315" aria-hidden="true" tabindex="-1"></a>&lt;script async defer crossorigin="anonymous"</span>
 <span id="cb2-316"><a href="#cb2-316" aria-hidden="true" tabindex="-1"></a> src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v20.0"&gt;&lt;/script&gt;</span>
-<span id="cb2-317"><a href="#cb2-317" aria-hidden="true" tabindex="-1"></a>&lt;div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/adaboost/" data-width="750" data-numposts="5"&gt;&lt;/div&gt;</span>
+<span id="cb2-317"><a href="#cb2-317" aria-hidden="true" tabindex="-1"></a>&lt;div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/posts/adaboost/" data-width="750" data-numposts="5"&gt;&lt;/div&gt;</span>
 <span id="cb2-318"><a href="#cb2-318" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-319"><a href="#cb2-319" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-320"><a href="#cb2-320" aria-hidden="true" tabindex="-1"></a>**You may also like** </span>

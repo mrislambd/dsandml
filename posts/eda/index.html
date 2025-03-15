@@ -122,8 +122,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
     const options = {
       valueNames: ['listing-image','listing-date','listing-title','listing-author','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-categories"],
+      page: 18,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -280,12 +281,12 @@ window.Quarto = {
   <li><a href="#discriptive-statistics" id="toc-discriptive-statistics" class="nav-link" data-scroll-target="#discriptive-statistics">Discriptive Statistics</a></li>
   <li><a href="#feature-engineering" id="toc-feature-engineering" class="nav-link" data-scroll-target="#feature-engineering">Feature Engineering</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.ipynb" download="index.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.ipynb" download="index.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li><li><a href="index.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="index.epub"><i class="bi bi-file"></i>ePub</a></li><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(0)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(103)</span></div><div class="category" data-category="QWxnb3JpdGhtcw==">Algorithms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZQ==">Artificial Intelligence <span class="quarto-category-count">(19)</span></div><div class="category" data-category="QmF5ZXNpYW4lMjBJbmZlcmVuY2U=">Bayesian Inference <span class="quarto-category-count">(2)</span></div><div class="category" data-category="QmF5ZXNpYW4lMjBTdGF0aXN0aWNz">Bayesian Statistics <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RGF0YSUyMEVuZ2luZWVyaW5n">Data Engineering <span class="quarto-category-count">(9)</span></div><div class="category" data-category="RGF0YSUyMFNjaWVuY2U=">Data Science <span class="quarto-category-count">(22)</span></div><div class="category" data-category="TWFjaGluZSUyMExlYXJuaW5n">Machine Learning <span class="quarto-category-count">(22)</span></div><div class="category" data-category="UHJvZ3JhbW1pbmc=">Programming <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHlUb3JjaA==">PyTorch <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3RhdGlzdGljcw==">Statistics <span class="quarto-category-count">(5)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -329,7 +330,7 @@ window.Quarto = {
 <p>In this Exploratory Data Analysis and Visualization notebook, we want to explore the <a href="https://www.kaggle.com/datasets/mchirico/montcoalert" target="_blank" style="text-decoration:none">911 call data from Kaggle.com</a></p>
 <section id="the-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="the-dataset">The Dataset</h2>
-<div id="7df72af9" class="cell" data-execution_count="1">
+<div id="0a8c9832" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -340,7 +341,7 @@ window.Quarto = {
 <section id="discriptive-statistics" class="level2">
 <h2 class="anchored" data-anchor-id="discriptive-statistics">Discriptive Statistics</h2>
 <p>We first check the data information to see the number of observations, datatype, memory usages etc.</p>
-<div id="f4ad4855" class="cell" data-execution_count="2">
+<div id="7c058dcd" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -362,7 +363,7 @@ memory usage: 7.3+ MB</code></pre>
 </div>
 </div>
 <p>A first look of the data</p>
-<div id="93a64f3c" class="cell" data-execution_count="3">
+<div id="bbb0b1b0" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
@@ -453,7 +454,7 @@ memory usage: 7.3+ MB</code></pre>
 <p>Some data related questions. For example,</p>
 <ul>
 <li><p>What are the top 10 zipcodes for 911 calls?</p>
-<div id="ecb34527" class="cell" data-execution_count="4">
+<div id="b14631e7" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">zip</span>.value_counts().head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>zip
@@ -471,7 +472,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div></li>
 <li><p>What are the top 10 twonships for the 911 calls?</p>
-<div id="744ebf37" class="cell" data-execution_count="5">
+<div id="042de4a5" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df.twp.value_counts().head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>twp
@@ -493,7 +494,7 @@ Name: count, dtype: int64</code></pre>
 <section id="feature-engineering" class="level2">
 <h2 class="anchored" data-anchor-id="feature-engineering">Feature Engineering</h2>
 <p>Sometimes creating new features from the existing features helps understand the data better. For example, for this dataset, we can create a new column called <code>Reason</code> for emergency 911 call.</p>
-<div id="55aed593" class="cell" data-execution_count="6">
+<div id="95945e7a" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'reason'</span>] <span class="op">=</span> df.title.<span class="bu">apply</span>(<span class="kw">lambda</span> title: title.split(<span class="st">':'</span>)[<span class="dv">0</span>])</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
@@ -563,7 +564,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>what are top reasons for the emergency calls?</p>
-<div id="8b9a52dc" class="cell" data-execution_count="7">
+<div id="4c5b992f" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df.reason.value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>reason
@@ -574,7 +575,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>visualization of the reason column</p>
-<div id="1a93aab6" class="cell" data-execution_count="8">
+<div id="2149f9cc" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span>df.reason, hue<span class="op">=</span>df.reason, palette<span class="op">=</span><span class="st">'viridis'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -585,18 +586,18 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>The <code>timeStamp</code> column contains time information year-month-day hour:minute:second format but in string value/object. So we can convert this column to obtain new features.</p>
-<div id="142758fe" class="cell" data-execution_count="9">
+<div id="860ecfa5" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'timeStamp'</span>] <span class="op">=</span> pd.to_datetime(df.timeStamp)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>time <span class="op">=</span> df.timeStamp.iloc[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_3214/1994586768.py:1: UserWarning:
+<pre><code>/tmp/ipykernel_3439/1994586768.py:1: UserWarning:
 
 Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
 </code></pre>
 </div>
 </div>
 <p>Let’s create new features called <code>hour</code>, <code>month</code>, and <code>day</code> of the calls.</p>
-<div id="d2879e44" class="cell" data-execution_count="10">
+<div id="6dedbada" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'hour'</span>] <span class="op">=</span> df.timeStamp.<span class="bu">apply</span>(<span class="kw">lambda</span> time: time.hour)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'month'</span>] <span class="op">=</span> df.timeStamp.<span class="bu">apply</span>(<span class="kw">lambda</span> time: time.month)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'day'</span>] <span class="op">=</span> df.timeStamp.<span class="bu">apply</span>(<span class="kw">lambda</span> time: time.dayofweek)</span>
@@ -691,7 +692,7 @@ Could not infer format, so each element will be parsed individually, falling bac
 </div>
 </div>
 <p>Now that we have almost a clean dataset, we can analyze the reason column based on the days of the week or months of a year.</p>
-<div id="a8157b80" class="cell" data-execution_count="11">
+<div id="d865ed84" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span><span class="st">'day'</span>, data<span class="op">=</span> df, hue<span class="op">=</span><span class="st">'reason'</span>, palette<span class="op">=</span><span class="st">'viridis'</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>,<span class="dv">1</span>), loc<span class="op">=</span><span class="dv">2</span>, borderaxespad<span class="op">=</span><span class="fl">0.0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -703,7 +704,7 @@ Could not infer format, so each element will be parsed individually, falling bac
 </div>
 </div>
 <p>For the month column</p>
-<div id="19017c32" class="cell" data-execution_count="12">
+<div id="d82733fe" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span><span class="st">'month'</span>, data<span class="op">=</span> df, hue<span class="op">=</span><span class="st">'reason'</span>, palette<span class="op">=</span><span class="st">'viridis'</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>,<span class="dv">1</span>), loc<span class="op">=</span><span class="dv">2</span>, borderaxespad<span class="op">=</span><span class="fl">0.0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -715,7 +716,7 @@ Could not infer format, so each element will be parsed individually, falling bac
 </div>
 </div>
 <p>To create a time series data</p>
-<div id="31f7c290" class="cell" data-execution_count="13">
+<div id="e774b733" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'date'</span>] <span class="op">=</span> df[<span class="st">'timeStamp'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> time: time.date())</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'date'</span>).count()[<span class="st">'twp'</span>].plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -727,7 +728,7 @@ Could not infer format, so each element will be parsed individually, falling bac
 </div>
 </div>
 <p>Now to see for each reason</p>
-<div id="83e540a1" class="cell" data-execution_count="14">
+<div id="3838dee3" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>start_date <span class="op">=</span> pd.to_datetime(<span class="st">'2019-01-01'</span>)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -760,17 +761,17 @@ Could not infer format, so each element will be parsed individually, falling bac
 <p><strong>Share on</strong></p>
 <div class="columns">
 <div class="column" style="width:33%;">
-<p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/eda/" target="_blank" style="color:#1877F2; text-decoration: none;"></a></p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/eda/" target="_blank" style="color:#1877F2; text-decoration: none;">
+<p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/eda/" target="_blank" style="color:#1877F2; text-decoration: none;"></a></p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/eda/" target="_blank" style="color:#1877F2; text-decoration: none;">
 <p><i class="fa-brands fa-facebook fa-3x" aria-label="facebook"></i></p>
-</a><p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/eda/" target="_blank" style="color:#1877F2; text-decoration: none;"></a></p>
+</a><p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/eda/" target="_blank" style="color:#1877F2; text-decoration: none;"></a></p>
 </div><div class="column" style="width:33%;">
-<p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/eda/" target="_blank" style="color:#0077B5; text-decoration: none;"></a></p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/eda/" target="_blank" style="color:#0077B5; text-decoration: none;">
+<p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/eda/" target="_blank" style="color:#0077B5; text-decoration: none;"></a></p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/eda/" target="_blank" style="color:#0077B5; text-decoration: none;">
 <p><i class="fa-brands fa-linkedin fa-3x" aria-label="linkedin"></i></p>
-</a><p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/eda/" target="_blank" style="color:#0077B5; text-decoration: none;"></a></p>
+</a><p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/eda/" target="_blank" style="color:#0077B5; text-decoration: none;"></a></p>
 </div><div class="column" style="width:33%;">
-<p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/eda/" target="_blank" style="color:#1DA1F2; text-decoration: none;"></a></p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/eda/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
+<p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/eda/" target="_blank" style="color:#1DA1F2; text-decoration: none;"></a></p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/eda/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
 <p><i class="fa-brands fa-twitter fa-3x" aria-label="twitter"></i></p>
-</a><p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/eda/" target="_blank" style="color:#1DA1F2; text-decoration: none;"></a></p>
+</a><p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/eda/" target="_blank" style="color:#1DA1F2; text-decoration: none;"></a></p>
 </div>
 </div>
 <script src="https://giscus.app/client.js" data-repo="mrislambd/mrislambd.github.io" data-repo-id="R_kgDOMV8crA" data-category="Announcements" data-category-id="DIC_kwDOMV8crM4CjbQW" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
@@ -779,7 +780,7 @@ Could not infer format, so each element will be parsed individually, falling bac
 
 </div>
 <script async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v20.0"></script>
-<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/eda/" data-width="750" data-numposts="5">
+<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/posts/eda/" data-width="750" data-numposts="5">
 
 </div>
 <p><strong>You may also like</strong></p>
@@ -792,7 +793,79 @@ Could not infer format, so each element will be parsed individually, falling bac
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-
+<div class="g-col-1" data-index="0" data-categories="TWFjaGluZSUyMExlYXJuaW5nJTJDRGF0YSUyMFNjaWVuY2UlMkNCYXllc2lhbiUyMEluZmVyZW5jZSUyQ0JheWVzaWFuJTIwU3RhdGlzdGljcyUyQ1N0YXRpc3RpY3M=" data-listing-date-sort="1729555200000" data-listing-file-modified-sort="1742014688633" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2300">
+<a href="../../posts/bayesianclassification/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../../posts/bayesianclassification/Bayeslearn.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Bayesian Probabilistic Models for Classification
+</h5>
+<div class="listing-reading-time card-text text-muted">
+12 min
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rafiq Islam
+</div>
+<div class="listing-date">
+Tuesday, October 22, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="TWFjaGluZSUyMExlYXJuaW5nJTJDRGF0YSUyMFNjaWVuY2UlMkNCYXllc2lhbiUyMEluZmVyZW5jZSUyQ0JheWVzaWFuJTIwU3RhdGlzdGljcyUyQ1N0YXRpc3RpY3M=" data-listing-date-sort="1733097600000" data-listing-file-modified-sort="1742014688632" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1271">
+<a href="../../posts/adaboost/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../../posts/adaboost/ada1.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Boosting Algorithm: Adaptive Boosting Method (AdaBoost)
+</h5>
+<div class="listing-reading-time card-text text-muted">
+7 min
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rafiq Islam
+</div>
+<div class="listing-date">
+Monday, December 2, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="U3RhdGlzdGljcyUyQ0RhdGElMjBTY2llbmNlJTJDRGF0YSUyMEVuZ2luZWVyaW5nJTJDTWFjaGluZSUyMExlYXJuaW5nJTJDQXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZQ==" data-listing-date-sort="1728518400000" data-listing-file-modified-sort="1742014688702" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2365">
+<a href="../../posts/naivebayes/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="../bayesianclassification/Bayeslearn.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Classification using Naive Bayes algorithm
+</h5>
+<div class="listing-reading-time card-text text-muted">
+12 min
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rafiq Islam
+</div>
+<div class="listing-date">
+Thursday, October 10, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
@@ -1431,7 +1504,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="an">lightbox:</span><span class="co"> true</span></span>
 <span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> eda.png</span></span>
 <span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="an">listing:</span><span class="co"> </span></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co">    contents: "/../../dsandml"</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co">    contents: "/../../posts"</span></span>
 <span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co">    max-items: 3</span></span>
 <span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co">    type: grid</span></span>
 <span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="co">    categories: true</span></span>
@@ -1440,198 +1513,214 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
 <span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="co">    html: default</span></span>
 <span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="co">    ipynb: default</span></span>
-<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="an">toc-depth:</span><span class="co"> 4</span></span>
-<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="co">---</span>  </span>
-<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>In this Exploratory Data Analysis and Visualization notebook, we want to explore the <span class="co">[</span><span class="ot">911 call data from Kaggle.com</span><span class="co">](https://www.kaggle.com/datasets/mchirico/montcoalert)</span>{target="_blank" style="text-decoration:none"}  </span>
-<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## The Dataset  </span></span>
-<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'911.csv'</span>)</span>
-<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
-<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Discriptive Statistics  </span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="co">    docx: </span></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="co">      toc: true</span></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a><span class="co">      adsense:</span></span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a><span class="co">        enable-ads: false</span></span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a><span class="co">    epub:</span></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="co">      toc: true</span></span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a><span class="co">      adsense:</span></span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a><span class="co">        enable-ads: false</span></span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a><span class="co">    pdf: </span></span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a><span class="co">      toc: true</span></span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a><span class="co">      pdf-engine: pdflatex</span></span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a><span class="co">      adsense:</span></span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a><span class="co">        enable-ads: false</span></span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a><span class="co">      number-sections: false</span></span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a><span class="co">      colorlinks: true</span></span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a><span class="co">      cite-method: biblatex</span></span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a><span class="an">toc-depth:</span><span class="co"> 4</span></span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a><span class="co">---</span>  </span>
 <span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a>We first check the data information to see the number of observations, datatype, memory usages etc.  </span>
+<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a>In this Exploratory Data Analysis and Visualization notebook, we want to explore the <span class="co">[</span><span class="ot">911 call data from Kaggle.com</span><span class="co">](https://www.kaggle.com/datasets/mchirico/montcoalert)</span>{target="_blank" style="text-decoration:none"}  </span>
 <span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a>df.info()</span>
-<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
-<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a>A first look of the data  </span>
-<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-52"><a href="#cb20-52" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb20-53"><a href="#cb20-53" aria-hidden="true" tabindex="-1"></a>df.head()</span>
-<span id="cb20-54"><a href="#cb20-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
-<span id="cb20-55"><a href="#cb20-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-56"><a href="#cb20-56" aria-hidden="true" tabindex="-1"></a>Some data related questions. For example,  </span>
-<span id="cb20-57"><a href="#cb20-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-58"><a href="#cb20-58" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What are the top 10 zipcodes for 911 calls?  </span>
-<span id="cb20-59"><a href="#cb20-59" aria-hidden="true" tabindex="-1"></a>  <span class="in">```{python}</span></span>
-<span id="cb20-60"><a href="#cb20-60" aria-hidden="true" tabindex="-1"></a><span class="in">  df.zip.value_counts().head(10)</span></span>
-<span id="cb20-61"><a href="#cb20-61" aria-hidden="true" tabindex="-1"></a><span class="in">  ```</span></span>
+<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## The Dataset  </span></span>
+<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'911.csv'</span>)</span>
+<span id="cb20-51"><a href="#cb20-51" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
+<span id="cb20-52"><a href="#cb20-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-53"><a href="#cb20-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## Discriptive Statistics  </span></span>
+<span id="cb20-54"><a href="#cb20-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-55"><a href="#cb20-55" aria-hidden="true" tabindex="-1"></a>We first check the data information to see the number of observations, datatype, memory usages etc.  </span>
+<span id="cb20-56"><a href="#cb20-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-59"><a href="#cb20-59" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb20-60"><a href="#cb20-60" aria-hidden="true" tabindex="-1"></a>df.info()</span>
+<span id="cb20-61"><a href="#cb20-61" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
 <span id="cb20-62"><a href="#cb20-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-63"><a href="#cb20-63" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What are the top 10 twonships for the 911 calls?</span>
-<span id="cb20-64"><a href="#cb20-64" aria-hidden="true" tabindex="-1"></a>  <span class="in">```{python}</span></span>
-<span id="cb20-65"><a href="#cb20-65" aria-hidden="true" tabindex="-1"></a><span class="in">  df.twp.value_counts().head(10)</span></span>
-<span id="cb20-66"><a href="#cb20-66" aria-hidden="true" tabindex="-1"></a><span class="in">  ```</span>  </span>
-<span id="cb20-67"><a href="#cb20-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-68"><a href="#cb20-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-69"><a href="#cb20-69" aria-hidden="true" tabindex="-1"></a><span class="fu">## Feature Engineering  </span></span>
-<span id="cb20-70"><a href="#cb20-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-71"><a href="#cb20-71" aria-hidden="true" tabindex="-1"></a>Sometimes creating new features from the existing features helps understand the data better. For example, for this dataset, we can create a new column called <span class="in">`Reason`</span> for emergency 911 call.  </span>
-<span id="cb20-72"><a href="#cb20-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-75"><a href="#cb20-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb20-76"><a href="#cb20-76" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'reason'</span>] <span class="op">=</span> df.title.<span class="bu">apply</span>(<span class="kw">lambda</span> title: title.split(<span class="st">':'</span>)[<span class="dv">0</span>])</span>
-<span id="cb20-77"><a href="#cb20-77" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">3</span>)</span>
-<span id="cb20-78"><a href="#cb20-78" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
-<span id="cb20-79"><a href="#cb20-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-80"><a href="#cb20-80" aria-hidden="true" tabindex="-1"></a>what are top reasons for the emergency calls?  </span>
-<span id="cb20-81"><a href="#cb20-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-84"><a href="#cb20-84" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb20-85"><a href="#cb20-85" aria-hidden="true" tabindex="-1"></a>df.reason.value_counts()</span>
-<span id="cb20-86"><a href="#cb20-86" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
-<span id="cb20-87"><a href="#cb20-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-88"><a href="#cb20-88" aria-hidden="true" tabindex="-1"></a>visualization of the reason column  </span>
-<span id="cb20-89"><a href="#cb20-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-92"><a href="#cb20-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb20-93"><a href="#cb20-93" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span>df.reason, hue<span class="op">=</span>df.reason, palette<span class="op">=</span><span class="st">'viridis'</span>)</span>
+<span id="cb20-63"><a href="#cb20-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-64"><a href="#cb20-64" aria-hidden="true" tabindex="-1"></a>A first look of the data  </span>
+<span id="cb20-65"><a href="#cb20-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-68"><a href="#cb20-68" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb20-69"><a href="#cb20-69" aria-hidden="true" tabindex="-1"></a>df.head()</span>
+<span id="cb20-70"><a href="#cb20-70" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
+<span id="cb20-71"><a href="#cb20-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-72"><a href="#cb20-72" aria-hidden="true" tabindex="-1"></a>Some data related questions. For example,  </span>
+<span id="cb20-73"><a href="#cb20-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-74"><a href="#cb20-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What are the top 10 zipcodes for 911 calls?  </span>
+<span id="cb20-75"><a href="#cb20-75" aria-hidden="true" tabindex="-1"></a>  <span class="in">```{python}</span></span>
+<span id="cb20-76"><a href="#cb20-76" aria-hidden="true" tabindex="-1"></a><span class="in">  df.zip.value_counts().head(10)</span></span>
+<span id="cb20-77"><a href="#cb20-77" aria-hidden="true" tabindex="-1"></a><span class="in">  ```</span></span>
+<span id="cb20-78"><a href="#cb20-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-79"><a href="#cb20-79" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What are the top 10 twonships for the 911 calls?</span>
+<span id="cb20-80"><a href="#cb20-80" aria-hidden="true" tabindex="-1"></a>  <span class="in">```{python}</span></span>
+<span id="cb20-81"><a href="#cb20-81" aria-hidden="true" tabindex="-1"></a><span class="in">  df.twp.value_counts().head(10)</span></span>
+<span id="cb20-82"><a href="#cb20-82" aria-hidden="true" tabindex="-1"></a><span class="in">  ```</span>  </span>
+<span id="cb20-83"><a href="#cb20-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-84"><a href="#cb20-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-85"><a href="#cb20-85" aria-hidden="true" tabindex="-1"></a><span class="fu">## Feature Engineering  </span></span>
+<span id="cb20-86"><a href="#cb20-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-87"><a href="#cb20-87" aria-hidden="true" tabindex="-1"></a>Sometimes creating new features from the existing features helps understand the data better. For example, for this dataset, we can create a new column called <span class="in">`Reason`</span> for emergency 911 call.  </span>
+<span id="cb20-88"><a href="#cb20-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-91"><a href="#cb20-91" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb20-92"><a href="#cb20-92" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'reason'</span>] <span class="op">=</span> df.title.<span class="bu">apply</span>(<span class="kw">lambda</span> title: title.split(<span class="st">':'</span>)[<span class="dv">0</span>])</span>
+<span id="cb20-93"><a href="#cb20-93" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">3</span>)</span>
 <span id="cb20-94"><a href="#cb20-94" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
 <span id="cb20-95"><a href="#cb20-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-96"><a href="#cb20-96" aria-hidden="true" tabindex="-1"></a>The <span class="in">`timeStamp`</span> column contains time information year-month-day hour:minute:second format but in string value/object. So we can convert this column to obtain new features.  </span>
+<span id="cb20-96"><a href="#cb20-96" aria-hidden="true" tabindex="-1"></a>what are top reasons for the emergency calls?  </span>
 <span id="cb20-97"><a href="#cb20-97" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-100"><a href="#cb20-100" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb20-101"><a href="#cb20-101" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'timeStamp'</span>] <span class="op">=</span> pd.to_datetime(df.timeStamp)</span>
-<span id="cb20-102"><a href="#cb20-102" aria-hidden="true" tabindex="-1"></a>time <span class="op">=</span> df.timeStamp.iloc[<span class="dv">0</span>]</span>
-<span id="cb20-103"><a href="#cb20-103" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
-<span id="cb20-104"><a href="#cb20-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-105"><a href="#cb20-105" aria-hidden="true" tabindex="-1"></a>Let's create new features called <span class="in">`hour`</span>, <span class="in">`month`</span>, and <span class="in">`day`</span> of the calls.  </span>
-<span id="cb20-106"><a href="#cb20-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-109"><a href="#cb20-109" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb20-110"><a href="#cb20-110" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'hour'</span>] <span class="op">=</span> df.timeStamp.<span class="bu">apply</span>(<span class="kw">lambda</span> time: time.hour)</span>
-<span id="cb20-111"><a href="#cb20-111" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'month'</span>] <span class="op">=</span> df.timeStamp.<span class="bu">apply</span>(<span class="kw">lambda</span> time: time.month)</span>
-<span id="cb20-112"><a href="#cb20-112" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'day'</span>] <span class="op">=</span> df.timeStamp.<span class="bu">apply</span>(<span class="kw">lambda</span> time: time.dayofweek)</span>
-<span id="cb20-113"><a href="#cb20-113" aria-hidden="true" tabindex="-1"></a>days <span class="op">=</span> {</span>
-<span id="cb20-114"><a href="#cb20-114" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>:<span class="st">'Monday'</span>, <span class="dv">1</span>:<span class="st">'Tuesday'</span>, <span class="dv">2</span>:<span class="st">'Wednesday'</span>, </span>
-<span id="cb20-115"><a href="#cb20-115" aria-hidden="true" tabindex="-1"></a>    <span class="dv">3</span>:<span class="st">'Thursday'</span>, <span class="dv">4</span>:<span class="st">'Friday'</span>, <span class="dv">5</span>:<span class="st">'Saturday'</span>,</span>
-<span id="cb20-116"><a href="#cb20-116" aria-hidden="true" tabindex="-1"></a>    <span class="dv">6</span>:<span class="st">'Sunday'</span></span>
-<span id="cb20-117"><a href="#cb20-117" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb20-118"><a href="#cb20-118" aria-hidden="true" tabindex="-1"></a>df.day <span class="op">=</span> df.day.<span class="bu">map</span>(days)</span>
-<span id="cb20-119"><a href="#cb20-119" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[</span>
-<span id="cb20-120"><a href="#cb20-120" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'lat'</span>,<span class="st">'lng'</span>,<span class="st">'zip'</span>,<span class="st">'twp'</span>,<span class="st">'e'</span>,<span class="st">'reason'</span>,</span>
-<span id="cb20-121"><a href="#cb20-121" aria-hidden="true" tabindex="-1"></a>    <span class="st">'month'</span>,<span class="st">'day'</span>,<span class="st">'hour'</span>,<span class="st">'title'</span>,<span class="st">'timeStamp'</span>,</span>
-<span id="cb20-122"><a href="#cb20-122" aria-hidden="true" tabindex="-1"></a>    <span class="st">'desc'</span>,<span class="st">'addr'</span>]</span>
-<span id="cb20-123"><a href="#cb20-123" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb20-124"><a href="#cb20-124" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">3</span>)</span>
-<span id="cb20-125"><a href="#cb20-125" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
-<span id="cb20-126"><a href="#cb20-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-127"><a href="#cb20-127" aria-hidden="true" tabindex="-1"></a>Now that we have almost a clean dataset, we can analyze the reason column based on the days of the week or months of a year. </span>
-<span id="cb20-128"><a href="#cb20-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-131"><a href="#cb20-131" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb20-132"><a href="#cb20-132" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span><span class="st">'day'</span>, data<span class="op">=</span> df, hue<span class="op">=</span><span class="st">'reason'</span>, palette<span class="op">=</span><span class="st">'viridis'</span>)</span>
-<span id="cb20-133"><a href="#cb20-133" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>,<span class="dv">1</span>), loc<span class="op">=</span><span class="dv">2</span>, borderaxespad<span class="op">=</span><span class="fl">0.0</span>)</span>
-<span id="cb20-134"><a href="#cb20-134" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
-<span id="cb20-135"><a href="#cb20-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-136"><a href="#cb20-136" aria-hidden="true" tabindex="-1"></a>For the month column </span>
-<span id="cb20-137"><a href="#cb20-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-140"><a href="#cb20-140" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb20-141"><a href="#cb20-141" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span><span class="st">'month'</span>, data<span class="op">=</span> df, hue<span class="op">=</span><span class="st">'reason'</span>, palette<span class="op">=</span><span class="st">'viridis'</span>)</span>
-<span id="cb20-142"><a href="#cb20-142" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>,<span class="dv">1</span>), loc<span class="op">=</span><span class="dv">2</span>, borderaxespad<span class="op">=</span><span class="fl">0.0</span>)</span>
-<span id="cb20-143"><a href="#cb20-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
+<span id="cb20-101"><a href="#cb20-101" aria-hidden="true" tabindex="-1"></a>df.reason.value_counts()</span>
+<span id="cb20-102"><a href="#cb20-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
+<span id="cb20-103"><a href="#cb20-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-104"><a href="#cb20-104" aria-hidden="true" tabindex="-1"></a>visualization of the reason column  </span>
+<span id="cb20-105"><a href="#cb20-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-108"><a href="#cb20-108" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb20-109"><a href="#cb20-109" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span>df.reason, hue<span class="op">=</span>df.reason, palette<span class="op">=</span><span class="st">'viridis'</span>)</span>
+<span id="cb20-110"><a href="#cb20-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
+<span id="cb20-111"><a href="#cb20-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-112"><a href="#cb20-112" aria-hidden="true" tabindex="-1"></a>The <span class="in">`timeStamp`</span> column contains time information year-month-day hour:minute:second format but in string value/object. So we can convert this column to obtain new features.  </span>
+<span id="cb20-113"><a href="#cb20-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-116"><a href="#cb20-116" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb20-117"><a href="#cb20-117" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'timeStamp'</span>] <span class="op">=</span> pd.to_datetime(df.timeStamp)</span>
+<span id="cb20-118"><a href="#cb20-118" aria-hidden="true" tabindex="-1"></a>time <span class="op">=</span> df.timeStamp.iloc[<span class="dv">0</span>]</span>
+<span id="cb20-119"><a href="#cb20-119" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
+<span id="cb20-120"><a href="#cb20-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-121"><a href="#cb20-121" aria-hidden="true" tabindex="-1"></a>Let's create new features called <span class="in">`hour`</span>, <span class="in">`month`</span>, and <span class="in">`day`</span> of the calls.  </span>
+<span id="cb20-122"><a href="#cb20-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-125"><a href="#cb20-125" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb20-126"><a href="#cb20-126" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'hour'</span>] <span class="op">=</span> df.timeStamp.<span class="bu">apply</span>(<span class="kw">lambda</span> time: time.hour)</span>
+<span id="cb20-127"><a href="#cb20-127" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'month'</span>] <span class="op">=</span> df.timeStamp.<span class="bu">apply</span>(<span class="kw">lambda</span> time: time.month)</span>
+<span id="cb20-128"><a href="#cb20-128" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'day'</span>] <span class="op">=</span> df.timeStamp.<span class="bu">apply</span>(<span class="kw">lambda</span> time: time.dayofweek)</span>
+<span id="cb20-129"><a href="#cb20-129" aria-hidden="true" tabindex="-1"></a>days <span class="op">=</span> {</span>
+<span id="cb20-130"><a href="#cb20-130" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>:<span class="st">'Monday'</span>, <span class="dv">1</span>:<span class="st">'Tuesday'</span>, <span class="dv">2</span>:<span class="st">'Wednesday'</span>, </span>
+<span id="cb20-131"><a href="#cb20-131" aria-hidden="true" tabindex="-1"></a>    <span class="dv">3</span>:<span class="st">'Thursday'</span>, <span class="dv">4</span>:<span class="st">'Friday'</span>, <span class="dv">5</span>:<span class="st">'Saturday'</span>,</span>
+<span id="cb20-132"><a href="#cb20-132" aria-hidden="true" tabindex="-1"></a>    <span class="dv">6</span>:<span class="st">'Sunday'</span></span>
+<span id="cb20-133"><a href="#cb20-133" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb20-134"><a href="#cb20-134" aria-hidden="true" tabindex="-1"></a>df.day <span class="op">=</span> df.day.<span class="bu">map</span>(days)</span>
+<span id="cb20-135"><a href="#cb20-135" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[</span>
+<span id="cb20-136"><a href="#cb20-136" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'lat'</span>,<span class="st">'lng'</span>,<span class="st">'zip'</span>,<span class="st">'twp'</span>,<span class="st">'e'</span>,<span class="st">'reason'</span>,</span>
+<span id="cb20-137"><a href="#cb20-137" aria-hidden="true" tabindex="-1"></a>    <span class="st">'month'</span>,<span class="st">'day'</span>,<span class="st">'hour'</span>,<span class="st">'title'</span>,<span class="st">'timeStamp'</span>,</span>
+<span id="cb20-138"><a href="#cb20-138" aria-hidden="true" tabindex="-1"></a>    <span class="st">'desc'</span>,<span class="st">'addr'</span>]</span>
+<span id="cb20-139"><a href="#cb20-139" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb20-140"><a href="#cb20-140" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">3</span>)</span>
+<span id="cb20-141"><a href="#cb20-141" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
+<span id="cb20-142"><a href="#cb20-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-143"><a href="#cb20-143" aria-hidden="true" tabindex="-1"></a>Now that we have almost a clean dataset, we can analyze the reason column based on the days of the week or months of a year. </span>
 <span id="cb20-144"><a href="#cb20-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-145"><a href="#cb20-145" aria-hidden="true" tabindex="-1"></a>To create a time series data  </span>
-<span id="cb20-146"><a href="#cb20-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-149"><a href="#cb20-149" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb20-150"><a href="#cb20-150" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'date'</span>] <span class="op">=</span> df[<span class="st">'timeStamp'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> time: time.date())</span>
-<span id="cb20-151"><a href="#cb20-151" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'date'</span>).count()[<span class="st">'twp'</span>].plot()</span>
-<span id="cb20-152"><a href="#cb20-152" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
+<span id="cb20-147"><a href="#cb20-147" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb20-148"><a href="#cb20-148" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span><span class="st">'day'</span>, data<span class="op">=</span> df, hue<span class="op">=</span><span class="st">'reason'</span>, palette<span class="op">=</span><span class="st">'viridis'</span>)</span>
+<span id="cb20-149"><a href="#cb20-149" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>,<span class="dv">1</span>), loc<span class="op">=</span><span class="dv">2</span>, borderaxespad<span class="op">=</span><span class="fl">0.0</span>)</span>
+<span id="cb20-150"><a href="#cb20-150" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
+<span id="cb20-151"><a href="#cb20-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-152"><a href="#cb20-152" aria-hidden="true" tabindex="-1"></a>For the month column </span>
 <span id="cb20-153"><a href="#cb20-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-154"><a href="#cb20-154" aria-hidden="true" tabindex="-1"></a>Now to see for each reason </span>
-<span id="cb20-155"><a href="#cb20-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-158"><a href="#cb20-158" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb20-159"><a href="#cb20-159" aria-hidden="true" tabindex="-1"></a>start_date <span class="op">=</span> pd.to_datetime(<span class="st">'2019-01-01'</span>)</span>
+<span id="cb20-156"><a href="#cb20-156" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb20-157"><a href="#cb20-157" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span><span class="st">'month'</span>, data<span class="op">=</span> df, hue<span class="op">=</span><span class="st">'reason'</span>, palette<span class="op">=</span><span class="st">'viridis'</span>)</span>
+<span id="cb20-158"><a href="#cb20-158" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>,<span class="dv">1</span>), loc<span class="op">=</span><span class="dv">2</span>, borderaxespad<span class="op">=</span><span class="fl">0.0</span>)</span>
+<span id="cb20-159"><a href="#cb20-159" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
 <span id="cb20-160"><a href="#cb20-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-161"><a href="#cb20-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-162"><a href="#cb20-162" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'date'</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">'date'</span>])</span>
-<span id="cb20-163"><a href="#cb20-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-164"><a href="#cb20-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-165"><a href="#cb20-165" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="fl">7.9</span>,<span class="dv">6</span>))</span>
-<span id="cb20-166"><a href="#cb20-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-167"><a href="#cb20-167" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">311</span>)</span>
-<span id="cb20-168"><a href="#cb20-168" aria-hidden="true" tabindex="-1"></a>df[(df[<span class="st">'reason'</span>] <span class="op">==</span> <span class="st">'Traffic'</span>) <span class="op">&amp;</span> (df[<span class="st">'date'</span>] <span class="op">&gt;=</span> start_date)].groupby(<span class="st">'date'</span>).count()[<span class="st">'twp'</span>].plot(ax<span class="op">=</span>ax1)</span>
+<span id="cb20-161"><a href="#cb20-161" aria-hidden="true" tabindex="-1"></a>To create a time series data  </span>
+<span id="cb20-162"><a href="#cb20-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-165"><a href="#cb20-165" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb20-166"><a href="#cb20-166" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'date'</span>] <span class="op">=</span> df[<span class="st">'timeStamp'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> time: time.date())</span>
+<span id="cb20-167"><a href="#cb20-167" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'date'</span>).count()[<span class="st">'twp'</span>].plot()</span>
+<span id="cb20-168"><a href="#cb20-168" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
 <span id="cb20-169"><a href="#cb20-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-170"><a href="#cb20-170" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> fig.add_subplot(<span class="dv">312</span>)</span>
-<span id="cb20-171"><a href="#cb20-171" aria-hidden="true" tabindex="-1"></a>df[(df[<span class="st">'reason'</span>] <span class="op">==</span> <span class="st">'Fire'</span>) <span class="op">&amp;</span> (df[<span class="st">'date'</span>] <span class="op">&gt;=</span> start_date)].groupby(<span class="st">'date'</span>).count()[<span class="st">'twp'</span>].plot(ax<span class="op">=</span>ax2)</span>
-<span id="cb20-172"><a href="#cb20-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-173"><a href="#cb20-173" aria-hidden="true" tabindex="-1"></a>ax3 <span class="op">=</span> fig.add_subplot(<span class="dv">313</span>)</span>
-<span id="cb20-174"><a href="#cb20-174" aria-hidden="true" tabindex="-1"></a>df[(df[<span class="st">'reason'</span>] <span class="op">==</span> <span class="st">'EMS'</span>) <span class="op">&amp;</span> (df[<span class="st">'date'</span>] <span class="op">&gt;=</span> start_date)].groupby(<span class="st">'date'</span>).count()[<span class="st">'twp'</span>].plot(ax<span class="op">=</span>ax3)</span>
-<span id="cb20-175"><a href="#cb20-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-176"><a href="#cb20-176" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb20-170"><a href="#cb20-170" aria-hidden="true" tabindex="-1"></a>Now to see for each reason </span>
+<span id="cb20-171"><a href="#cb20-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-174"><a href="#cb20-174" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb20-175"><a href="#cb20-175" aria-hidden="true" tabindex="-1"></a>start_date <span class="op">=</span> pd.to_datetime(<span class="st">'2019-01-01'</span>)</span>
+<span id="cb20-176"><a href="#cb20-176" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-177"><a href="#cb20-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-178"><a href="#cb20-178" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb20-178"><a href="#cb20-178" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'date'</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">'date'</span>])</span>
 <span id="cb20-179"><a href="#cb20-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-180"><a href="#cb20-180" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
-<span id="cb20-181"><a href="#cb20-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-182"><a href="#cb20-182" aria-hidden="true" tabindex="-1"></a>---  </span>
-<span id="cb20-183"><a href="#cb20-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-184"><a href="#cb20-184" aria-hidden="true" tabindex="-1"></a>**Share on**  </span>
+<span id="cb20-180"><a href="#cb20-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-181"><a href="#cb20-181" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="fl">7.9</span>,<span class="dv">6</span>))</span>
+<span id="cb20-182"><a href="#cb20-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-183"><a href="#cb20-183" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">311</span>)</span>
+<span id="cb20-184"><a href="#cb20-184" aria-hidden="true" tabindex="-1"></a>df[(df[<span class="st">'reason'</span>] <span class="op">==</span> <span class="st">'Traffic'</span>) <span class="op">&amp;</span> (df[<span class="st">'date'</span>] <span class="op">&gt;=</span> start_date)].groupby(<span class="st">'date'</span>).count()[<span class="st">'twp'</span>].plot(ax<span class="op">=</span>ax1)</span>
 <span id="cb20-185"><a href="#cb20-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-186"><a href="#cb20-186" aria-hidden="true" tabindex="-1"></a>::::{.columns}</span>
-<span id="cb20-187"><a href="#cb20-187" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
-<span id="cb20-188"><a href="#cb20-188" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/eda/" target="_blank" style="color:#1877F2; text-decoration: none;"&gt;</span>
-<span id="cb20-189"><a href="#cb20-189" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb20-190"><a href="#cb20-190" aria-hidden="true" tabindex="-1"></a>{{&lt; fa brands facebook size=3x &gt;}}</span>
-<span id="cb20-191"><a href="#cb20-191" aria-hidden="true" tabindex="-1"></a>&lt;/a&gt;</span>
-<span id="cb20-192"><a href="#cb20-192" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb20-193"><a href="#cb20-193" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-194"><a href="#cb20-194" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb20-195"><a href="#cb20-195" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
-<span id="cb20-196"><a href="#cb20-196" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/eda/" target="_blank" style="color:#0077B5; text-decoration: none;"&gt;</span>
-<span id="cb20-197"><a href="#cb20-197" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb20-198"><a href="#cb20-198" aria-hidden="true" tabindex="-1"></a>{{&lt; fa brands linkedin size=3x &gt;}}</span>
-<span id="cb20-199"><a href="#cb20-199" aria-hidden="true" tabindex="-1"></a>&lt;/a&gt;</span>
-<span id="cb20-200"><a href="#cb20-200" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb20-201"><a href="#cb20-201" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-202"><a href="#cb20-202" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb20-186"><a href="#cb20-186" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> fig.add_subplot(<span class="dv">312</span>)</span>
+<span id="cb20-187"><a href="#cb20-187" aria-hidden="true" tabindex="-1"></a>df[(df[<span class="st">'reason'</span>] <span class="op">==</span> <span class="st">'Fire'</span>) <span class="op">&amp;</span> (df[<span class="st">'date'</span>] <span class="op">&gt;=</span> start_date)].groupby(<span class="st">'date'</span>).count()[<span class="st">'twp'</span>].plot(ax<span class="op">=</span>ax2)</span>
+<span id="cb20-188"><a href="#cb20-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-189"><a href="#cb20-189" aria-hidden="true" tabindex="-1"></a>ax3 <span class="op">=</span> fig.add_subplot(<span class="dv">313</span>)</span>
+<span id="cb20-190"><a href="#cb20-190" aria-hidden="true" tabindex="-1"></a>df[(df[<span class="st">'reason'</span>] <span class="op">==</span> <span class="st">'EMS'</span>) <span class="op">&amp;</span> (df[<span class="st">'date'</span>] <span class="op">&gt;=</span> start_date)].groupby(<span class="st">'date'</span>).count()[<span class="st">'twp'</span>].plot(ax<span class="op">=</span>ax3)</span>
+<span id="cb20-191"><a href="#cb20-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-192"><a href="#cb20-192" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb20-193"><a href="#cb20-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-194"><a href="#cb20-194" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb20-195"><a href="#cb20-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-196"><a href="#cb20-196" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
+<span id="cb20-197"><a href="#cb20-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-198"><a href="#cb20-198" aria-hidden="true" tabindex="-1"></a>---  </span>
+<span id="cb20-199"><a href="#cb20-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-200"><a href="#cb20-200" aria-hidden="true" tabindex="-1"></a>**Share on**  </span>
+<span id="cb20-201"><a href="#cb20-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-202"><a href="#cb20-202" aria-hidden="true" tabindex="-1"></a>::::{.columns}</span>
 <span id="cb20-203"><a href="#cb20-203" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
-<span id="cb20-204"><a href="#cb20-204" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/eda/" target="_blank" style="color:#1DA1F2; text-decoration: none;"&gt;</span>
+<span id="cb20-204"><a href="#cb20-204" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/eda/" target="_blank" style="color:#1877F2; text-decoration: none;"&gt;</span>
 <span id="cb20-205"><a href="#cb20-205" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb20-206"><a href="#cb20-206" aria-hidden="true" tabindex="-1"></a>{{&lt; fa brands twitter size=3x &gt;}}</span>
+<span id="cb20-206"><a href="#cb20-206" aria-hidden="true" tabindex="-1"></a>{{&lt; fa brands facebook size=3x &gt;}}</span>
 <span id="cb20-207"><a href="#cb20-207" aria-hidden="true" tabindex="-1"></a>&lt;/a&gt;</span>
 <span id="cb20-208"><a href="#cb20-208" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb20-209"><a href="#cb20-209" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-210"><a href="#cb20-210" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb20-211"><a href="#cb20-211" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb20-212"><a href="#cb20-212" aria-hidden="true" tabindex="-1"></a>&lt;script src="https://giscus.app/client.js"</span>
-<span id="cb20-213"><a href="#cb20-213" aria-hidden="true" tabindex="-1"></a>        data-repo="mrislambd/mrislambd.github.io" </span>
-<span id="cb20-214"><a href="#cb20-214" aria-hidden="true" tabindex="-1"></a>        data-repo-id="R_kgDOMV8crA"</span>
-<span id="cb20-215"><a href="#cb20-215" aria-hidden="true" tabindex="-1"></a>        data-category="Announcements"</span>
-<span id="cb20-216"><a href="#cb20-216" aria-hidden="true" tabindex="-1"></a>        data-category-id="DIC_kwDOMV8crM4CjbQW"</span>
-<span id="cb20-217"><a href="#cb20-217" aria-hidden="true" tabindex="-1"></a>        data-mapping="pathname"</span>
-<span id="cb20-218"><a href="#cb20-218" aria-hidden="true" tabindex="-1"></a>        data-strict="0"</span>
-<span id="cb20-219"><a href="#cb20-219" aria-hidden="true" tabindex="-1"></a>        data-reactions-enabled="1"</span>
-<span id="cb20-220"><a href="#cb20-220" aria-hidden="true" tabindex="-1"></a>        data-emit-metadata="0"</span>
-<span id="cb20-221"><a href="#cb20-221" aria-hidden="true" tabindex="-1"></a>        data-input-position="bottom"</span>
-<span id="cb20-222"><a href="#cb20-222" aria-hidden="true" tabindex="-1"></a>        data-theme="light"</span>
-<span id="cb20-223"><a href="#cb20-223" aria-hidden="true" tabindex="-1"></a>        data-lang="en"</span>
-<span id="cb20-224"><a href="#cb20-224" aria-hidden="true" tabindex="-1"></a>        crossorigin="anonymous"</span>
-<span id="cb20-225"><a href="#cb20-225" aria-hidden="true" tabindex="-1"></a>        async&gt;</span>
-<span id="cb20-226"><a href="#cb20-226" aria-hidden="true" tabindex="-1"></a>&lt;/script&gt;</span>
+<span id="cb20-210"><a href="#cb20-210" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb20-211"><a href="#cb20-211" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
+<span id="cb20-212"><a href="#cb20-212" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/eda/" target="_blank" style="color:#0077B5; text-decoration: none;"&gt;</span>
+<span id="cb20-213"><a href="#cb20-213" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb20-214"><a href="#cb20-214" aria-hidden="true" tabindex="-1"></a>{{&lt; fa brands linkedin size=3x &gt;}}</span>
+<span id="cb20-215"><a href="#cb20-215" aria-hidden="true" tabindex="-1"></a>&lt;/a&gt;</span>
+<span id="cb20-216"><a href="#cb20-216" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb20-217"><a href="#cb20-217" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-218"><a href="#cb20-218" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb20-219"><a href="#cb20-219" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
+<span id="cb20-220"><a href="#cb20-220" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/eda/" target="_blank" style="color:#1DA1F2; text-decoration: none;"&gt;</span>
+<span id="cb20-221"><a href="#cb20-221" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb20-222"><a href="#cb20-222" aria-hidden="true" tabindex="-1"></a>{{&lt; fa brands twitter size=3x &gt;}}</span>
+<span id="cb20-223"><a href="#cb20-223" aria-hidden="true" tabindex="-1"></a>&lt;/a&gt;</span>
+<span id="cb20-224"><a href="#cb20-224" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb20-225"><a href="#cb20-225" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-226"><a href="#cb20-226" aria-hidden="true" tabindex="-1"></a>::::</span>
 <span id="cb20-227"><a href="#cb20-227" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb20-228"><a href="#cb20-228" aria-hidden="true" tabindex="-1"></a>&lt;div id="fb-root"&gt;&lt;/div&gt;</span>
-<span id="cb20-229"><a href="#cb20-229" aria-hidden="true" tabindex="-1"></a>&lt;script async defer crossorigin="anonymous"</span>
-<span id="cb20-230"><a href="#cb20-230" aria-hidden="true" tabindex="-1"></a> src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v20.0"&gt;&lt;/script&gt;</span>
-<span id="cb20-231"><a href="#cb20-231" aria-hidden="true" tabindex="-1"></a>&lt;div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/eda/" data-width="750" data-numposts="5"&gt;&lt;/div&gt;</span>
-<span id="cb20-232"><a href="#cb20-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-233"><a href="#cb20-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-234"><a href="#cb20-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-235"><a href="#cb20-235" aria-hidden="true" tabindex="-1"></a>**You may also like**</span>
+<span id="cb20-228"><a href="#cb20-228" aria-hidden="true" tabindex="-1"></a>&lt;script src="https://giscus.app/client.js"</span>
+<span id="cb20-229"><a href="#cb20-229" aria-hidden="true" tabindex="-1"></a>        data-repo="mrislambd/mrislambd.github.io" </span>
+<span id="cb20-230"><a href="#cb20-230" aria-hidden="true" tabindex="-1"></a>        data-repo-id="R_kgDOMV8crA"</span>
+<span id="cb20-231"><a href="#cb20-231" aria-hidden="true" tabindex="-1"></a>        data-category="Announcements"</span>
+<span id="cb20-232"><a href="#cb20-232" aria-hidden="true" tabindex="-1"></a>        data-category-id="DIC_kwDOMV8crM4CjbQW"</span>
+<span id="cb20-233"><a href="#cb20-233" aria-hidden="true" tabindex="-1"></a>        data-mapping="pathname"</span>
+<span id="cb20-234"><a href="#cb20-234" aria-hidden="true" tabindex="-1"></a>        data-strict="0"</span>
+<span id="cb20-235"><a href="#cb20-235" aria-hidden="true" tabindex="-1"></a>        data-reactions-enabled="1"</span>
+<span id="cb20-236"><a href="#cb20-236" aria-hidden="true" tabindex="-1"></a>        data-emit-metadata="0"</span>
+<span id="cb20-237"><a href="#cb20-237" aria-hidden="true" tabindex="-1"></a>        data-input-position="bottom"</span>
+<span id="cb20-238"><a href="#cb20-238" aria-hidden="true" tabindex="-1"></a>        data-theme="light"</span>
+<span id="cb20-239"><a href="#cb20-239" aria-hidden="true" tabindex="-1"></a>        data-lang="en"</span>
+<span id="cb20-240"><a href="#cb20-240" aria-hidden="true" tabindex="-1"></a>        crossorigin="anonymous"</span>
+<span id="cb20-241"><a href="#cb20-241" aria-hidden="true" tabindex="-1"></a>        async&gt;</span>
+<span id="cb20-242"><a href="#cb20-242" aria-hidden="true" tabindex="-1"></a>&lt;/script&gt;</span>
+<span id="cb20-243"><a href="#cb20-243" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb20-244"><a href="#cb20-244" aria-hidden="true" tabindex="-1"></a>&lt;div id="fb-root"&gt;&lt;/div&gt;</span>
+<span id="cb20-245"><a href="#cb20-245" aria-hidden="true" tabindex="-1"></a>&lt;script async defer crossorigin="anonymous"</span>
+<span id="cb20-246"><a href="#cb20-246" aria-hidden="true" tabindex="-1"></a> src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v20.0"&gt;&lt;/script&gt;</span>
+<span id="cb20-247"><a href="#cb20-247" aria-hidden="true" tabindex="-1"></a>&lt;div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/posts/eda/" data-width="750" data-numposts="5"&gt;&lt;/div&gt;</span>
+<span id="cb20-248"><a href="#cb20-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-249"><a href="#cb20-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-250"><a href="#cb20-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-251"><a href="#cb20-251" aria-hidden="true" tabindex="-1"></a>**You may also like**</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

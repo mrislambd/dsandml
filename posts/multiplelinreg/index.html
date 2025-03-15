@@ -119,8 +119,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
     const options = {
       valueNames: ['listing-image','listing-date','listing-title','listing-author','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-categories"],
+      page: 18,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -287,7 +288,7 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(0)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(201)</span></div><div class="category" data-category="QWxnb3JpdGhtcw==">Algorithms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZQ==">Artificial Intelligence <span class="quarto-category-count">(19)</span></div><div class="category" data-category="QmF5ZXNpYW4lMjBJbmZlcmVuY2U=">Bayesian Inference <span class="quarto-category-count">(2)</span></div><div class="category" data-category="QmF5ZXNpYW4lMjBTdGF0aXN0aWNz">Bayesian Statistics <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RGF0YSUyMEVuZ2luZWVyaW5n">Data Engineering <span class="quarto-category-count">(10)</span></div><div class="category" data-category="RGF0YSUyMFNjaWVuY2U=">Data Science <span class="quarto-category-count">(22)</span></div><div class="category" data-category="TWFjaGluZSUyMExlYXJuaW5n">Machine Learning <span class="quarto-category-count">(22)</span></div><div class="category" data-category="UHJvZ3JhbW1pbmc=">Programming <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHlUb3JjaA==">PyTorch <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3RhdGlzdGljcw==">Statistics <span class="quarto-category-count">(5)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -399,7 +400,7 @@ The vector <span class="math inline">\(\hat{\beta} = (X^T X)^{-1} X^T y\)</span>
 <section id="gradient-descent" class="level3">
 <h3 class="anchored" data-anchor-id="gradient-descent">Gradient Descent</h3>
 <p style="text-align: justify">
-<img align="right" height="350" width="450" src="../../dsandml/multiplelinreg/gradient_descent.gif" alt="Collected from gbhat.com" style="margin-left: 20px; margin-bottom: 20px"> <br> GIF Credit: <a href="https://gbhat.com/machine_learning/gradient_descent_anim.html" target="_blank" style="text-decoration:none">gbhat.com</a><br>
+<img align="right" height="350" width="450" src="../../posts/multiplelinreg/gradient_descent.gif" alt="Collected from gbhat.com" style="margin-left: 20px; margin-bottom: 20px"> <br> GIF Credit: <a href="https://gbhat.com/machine_learning/gradient_descent_anim.html" target="_blank" style="text-decoration:none">gbhat.com</a><br>
 <br> Gradient Descent is an optimization algorithm used to minimize the cost function. The cost function <span class="math inline">\(f(\beta)\)</span> measures how well a model with parameters <span class="math inline">\(\beta\)</span> fits the data. The goal is to find the values of <span class="math inline">\(\beta\)</span> that minimize this cost function. In terms of the iterative method, we want to find <span class="math inline">\(\beta_{k+1}\)</span> and <span class="math inline">\(\beta_k\)</span> such that <span class="math inline">\(f(\beta_{k+1})&lt;f(\beta_k)\)</span>. <br> <br> For a small change in <span class="math inline">\(\beta\)</span>, we can approximate <span class="math inline">\(f(\beta)\)</span> using Taylor series expansion<br>
 <span class="math display">\[f(\beta_{k+1})=f(\beta_k +\Delta\beta_k)\approx f(\beta_k)+\nabla f(\beta_k)^T \Delta \beta_k+\text{higher-order terms}\]</span>
 </p>
@@ -453,7 +454,7 @@ f(\beta) = \frac{1}{n} \sum_{i=1}^{n} f_i(\beta)
 <h2 class="anchored" data-anchor-id="python-execution">Python Execution</h2>
 <section id="synthetic-data" class="level3">
 <h3 class="anchored" data-anchor-id="synthetic-data">Synthetic Data</h3>
-<div id="82f72a4a" class="cell" data-execution_count="1">
+<div id="96acd95e" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>X<span class="op">=</span>np.random.randn(<span class="dv">1000</span>,<span class="dv">2</span>)</span>
@@ -463,13 +464,13 @@ f(\beta) = \frac{1}{n} \sum_{i=1}^{n} f_i(\beta)
 </section>
 <section id="fit-the-data-using-scikit-learn-library" class="level3">
 <h3 class="anchored" data-anchor-id="fit-the-data-using-scikit-learn-library">Fit the data: Using scikit-learn Library</h3>
-<div id="d542388b" class="cell" data-execution_count="2">
+<div id="7a8c4471" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mlr<span class="op">=</span>LinearRegression()</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>mlr.fit(X,y)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>coefficients<span class="op">=</span>mlr.coef_.tolist()</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>slope<span class="op">=</span>mlr.intercept_.tolist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>So the model parameters: slope <span class="math inline">\(\beta_0=\)</span> 1.0592 and coefficients <span class="math inline">\(\beta_1=\)</span> 2.9765, and <span class="math inline">\(\beta_2=\)</span> 1.9398</p>
+<p>So the model parameters: slope <span class="math inline">\(\beta_0=\)</span> 0.9426 and coefficients <span class="math inline">\(\beta_1=\)</span> 2.9744, and <span class="math inline">\(\beta_2=\)</span> 1.9938</p>
 </section>
 <section id="fit-the-data-using-custom-library-ols" class="level3">
 <h3 class="anchored" data-anchor-id="fit-the-data-using-custom-library-ols">Fit the data: Using Custom Library OLS</h3>
@@ -498,14 +499,14 @@ f(\beta) = \frac{1}{n} \sum_{i=1}^{n} f_i(\beta)
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> interceptt_(<span class="va">self</span>):</span>
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.beta[<span class="dv">0</span>].tolist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now it’s time to use the new class</p>
-<div id="b4503455" class="cell" data-execution_count="3">
+<div id="d4b16607" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mlreg <span class="im">import</span> NewLinearRegression</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>mlr1 <span class="op">=</span> NewLinearRegression()</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>mlr1.fit(X,y)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>coefficients1<span class="op">=</span>mlr1.coeff_()</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>slope1<span class="op">=</span>mlr1.interceptt_()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>So the model parameters: slope <span class="math inline">\(\beta_0=\)</span> 1.0592 and coefficients <span class="math inline">\(\beta_1=\)</span> 2.9765, and <span class="math inline">\(\beta_2=\)</span> 1.9398</p>
+<p>So the model parameters: slope <span class="math inline">\(\beta_0=\)</span> 0.9426 and coefficients <span class="math inline">\(\beta_1=\)</span> 2.9744, and <span class="math inline">\(\beta_2=\)</span> 1.9938</p>
 </section>
 <section id="fit-the-data-using-gradient-descent" class="level3">
 <h3 class="anchored" data-anchor-id="fit-the-data-using-gradient-descent">Fit the data: Using Gradient Descent</h3>
@@ -541,14 +542,14 @@ f(\beta) = \frac{1}{n} \sum_{i=1}^{n} f_i(\beta)
 <span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> intercepttt_(<span class="va">self</span>):</span>
 <span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.bias</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now we use this similarly as before,</p>
-<div id="8455d76e" class="cell" data-execution_count="4">
+<div id="177b46fa" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mlreg <span class="im">import</span> GDLinearRegression</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>mlr2<span class="op">=</span> GDLinearRegression(learning_rate<span class="op">=</span><span class="fl">0.008</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>mlr2.fit(X,y)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>coefficients2<span class="op">=</span>mlr2.coefff_()</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>slope2<span class="op">=</span>mlr2.intercepttt_()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>So the model parameters: slope <span class="math inline">\(\beta_0=\)</span> 1.0586 and coefficients <span class="math inline">\(\beta_1=\)</span> 2.9753, and <span class="math inline">\(\beta_2=\)</span> 1.939</p>
+<p>So the model parameters: slope <span class="math inline">\(\beta_0=\)</span> 0.9419 and coefficients <span class="math inline">\(\beta_1=\)</span> 2.9725, and <span class="math inline">\(\beta_2=\)</span> 1.9921</p>
 </section>
 <section id="fit-the-data-using-stochastic-gradient-descent" class="level3">
 <h3 class="anchored" data-anchor-id="fit-the-data-using-stochastic-gradient-descent">Fit the data: Using Stochastic Gradient Descent</h3>
@@ -614,29 +615,29 @@ f(\beta) = \frac{1}{n} \sum_{i=1}^{n} f_i(\beta)
 <span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Return the mse_list</span></span>
 <span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.mse_list.tolist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now</p>
-<div id="a281ee90" class="cell" data-execution_count="5">
+<div id="b6880931" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mlreg <span class="im">import</span> SGDLinearRegression</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>mlr3<span class="op">=</span>SGDLinearRegression(learning_rate<span class="op">=</span><span class="fl">0.01</span>, num_iterations<span class="op">=</span><span class="dv">1000</span>, batch_size<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>theta, _ <span class="op">=</span> mlr3.fit(X, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>So the model parameters: slope <span class="math inline">\(\beta_0=\)</span> array([1.07012614]) and coefficients <span class="math inline">\(\beta_1=\)</span> array([2.98308297]), and <span class="math inline">\(\beta_2=\)</span> array([1.94064291])</p>
-<p>Up next <a href="../../dsandml/knn/index.qmd">knn regression</a></p>
+<p>So the model parameters: slope <span class="math inline">\(\beta_0=\)</span> array([0.92127946]) and coefficients <span class="math inline">\(\beta_1=\)</span> array([2.97124282]), and <span class="math inline">\(\beta_2=\)</span> array([2.00692651])</p>
+<p>Up next <a href="../../posts/knn/index.html">knn regression</a></p>
 <hr>
 <p><strong>Share on</strong></p>
 <div class="columns">
 <div class="column" style="width:33%;">
-<p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/multiplelinreg/" target="_blank" style="color:#1877F2; text-decoration: none;"></a></p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/multiplelinreg/" target="_blank" style="color:#1877F2; text-decoration: none;">
+<p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/multiplelinreg/" target="_blank" style="color:#1877F2; text-decoration: none;"></a></p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/multiplelinreg/" target="_blank" style="color:#1877F2; text-decoration: none;">
 <p><i class="fa-brands fa-facebook fa-3x" aria-label="facebook"></i></p>
-</a><p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/multiplelinreg/" target="_blank" style="color:#1877F2; text-decoration: none;"></a></p>
+</a><p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/multiplelinreg/" target="_blank" style="color:#1877F2; text-decoration: none;"></a></p>
 </div><div class="column" style="width:33%;">
-<p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/multiplelinreg/" target="_blank" style="color:#0077B5; text-decoration: none;"></a></p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/multiplelinreg/" target="_blank" style="color:#0077B5; text-decoration: none;">
+<p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/multiplelinreg/" target="_blank" style="color:#0077B5; text-decoration: none;"></a></p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/multiplelinreg/" target="_blank" style="color:#0077B5; text-decoration: none;">
 <p><i class="fa-brands fa-linkedin fa-3x" aria-label="linkedin"></i></p>
-</a><p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/multiplelinreg/" target="_blank" style="color:#0077B5; text-decoration: none;"></a></p>
+</a><p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/multiplelinreg/" target="_blank" style="color:#0077B5; text-decoration: none;"></a></p>
 </div><div class="column" style="width:33%;">
-<p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/multiplelinreg/" target="_blank" style="color:#1DA1F2; text-decoration: none;"></a></p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/multiplelinreg/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
+<p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/multiplelinreg/" target="_blank" style="color:#1DA1F2; text-decoration: none;"></a></p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/multiplelinreg/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
 <p><i class="fa-brands fa-twitter fa-3x" aria-label="twitter"></i></p>
-</a><p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/multiplelinreg/" target="_blank" style="color:#1DA1F2; text-decoration: none;"></a></p>
+</a><p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/multiplelinreg/" target="_blank" style="color:#1DA1F2; text-decoration: none;"></a></p>
 </div>
 </div>
 <script src="https://giscus.app/client.js" data-repo="mrislambd/mrislambd.github.io" data-repo-id="R_kgDOMV8crA" data-category="Announcements" data-category-id="DIC_kwDOMV8crM4CjbQW" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
@@ -645,7 +646,7 @@ f(\beta) = \frac{1}{n} \sum_{i=1}^{n} f_i(\beta)
 
 </div>
 <script async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v20.0"></script>
-<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/multiplelinreg/" data-width="800" data-numposts="5">
+<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/posts/multiplelinreg/" data-width="750" data-numposts="5">
 
 </div>
 <p><strong>You may also like</strong></p>
@@ -659,7 +660,79 @@ f(\beta) = \frac{1}{n} \sum_{i=1}^{n} f_i(\beta)
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-
+<div class="g-col-1" data-index="0" data-categories="TWFjaGluZSUyMExlYXJuaW5nJTJDRGF0YSUyMFNjaWVuY2UlMkNCYXllc2lhbiUyMEluZmVyZW5jZSUyQ0JheWVzaWFuJTIwU3RhdGlzdGljcyUyQ1N0YXRpc3RpY3M=" data-listing-date-sort="1729555200000" data-listing-file-modified-sort="1742014688633" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2300">
+<a href="../../posts/bayesianclassification/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../../posts/bayesianclassification/Bayeslearn.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Bayesian Probabilistic Models for Classification
+</h5>
+<div class="listing-reading-time card-text text-muted">
+12 min
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rafiq Islam
+</div>
+<div class="listing-date">
+Tuesday, October 22, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="TWFjaGluZSUyMExlYXJuaW5nJTJDRGF0YSUyMFNjaWVuY2UlMkNCYXllc2lhbiUyMEluZmVyZW5jZSUyQ0JheWVzaWFuJTIwU3RhdGlzdGljcyUyQ1N0YXRpc3RpY3M=" data-listing-date-sort="1733097600000" data-listing-file-modified-sort="1742014688632" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1271">
+<a href="../../posts/adaboost/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../../posts/adaboost/ada1.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Boosting Algorithm: Adaptive Boosting Method (AdaBoost)
+</h5>
+<div class="listing-reading-time card-text text-muted">
+7 min
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rafiq Islam
+</div>
+<div class="listing-date">
+Monday, December 2, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="U3RhdGlzdGljcyUyQ0RhdGElMjBTY2llbmNlJTJDRGF0YSUyMEVuZ2luZWVyaW5nJTJDTWFjaGluZSUyMExlYXJuaW5nJTJDQXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZQ==" data-listing-date-sort="1728518400000" data-listing-file-modified-sort="1742014688702" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2365">
+<a href="../../posts/naivebayes/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="../bayesianclassification/Bayeslearn.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Classification using Naive Bayes algorithm
+</h5>
+<div class="listing-reading-time card-text text-muted">
+12 min
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rafiq Islam
+</div>
+<div class="listing-date">
+Thursday, October 10, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
@@ -1297,7 +1370,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="an">search:</span><span class="co"> true</span></span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="an">lightbox:</span><span class="co"> true</span></span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="an">listing:</span><span class="co"> </span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">    contents: "/../../dsandml"</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">    contents: "/../../posts"</span></span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">    max-items: 3</span></span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">    type: grid</span></span>
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co">    categories: true</span></span>
@@ -1426,7 +1499,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb9-137"><a href="#cb9-137" aria-hidden="true" tabindex="-1"></a><span class="fu">### Gradient Descent  </span></span>
 <span id="cb9-138"><a href="#cb9-138" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-139"><a href="#cb9-139" aria-hidden="true" tabindex="-1"></a>&lt;p style="text-align: justify"&gt;</span>
-<span id="cb9-140"><a href="#cb9-140" aria-hidden="true" tabindex="-1"></a>    &lt;img align="right" height=350 width=450 src="/dsandml/multiplelinreg/gradient_descent.gif" alt="Collected from gbhat.com" style="margin-left: 20px; margin-bottom: 20px"/&gt;</span>
+<span id="cb9-140"><a href="#cb9-140" aria-hidden="true" tabindex="-1"></a>    &lt;img align="right" height=350 width=450 src="/posts/multiplelinreg/gradient_descent.gif" alt="Collected from gbhat.com" style="margin-left: 20px; margin-bottom: 20px"/&gt;</span>
 <span id="cb9-141"><a href="#cb9-141" aria-hidden="true" tabindex="-1"></a>    &lt;br&gt;</span>
 <span id="cb9-142"><a href="#cb9-142" aria-hidden="true" tabindex="-1"></a>    GIF Credit: &lt;a href="https://gbhat.com/machine_learning/gradient_descent_anim.html" target="_blank" style="text-decoration:none"&gt;gbhat.com&lt;/a&gt;    </span>
 <span id="cb9-143"><a href="#cb9-143" aria-hidden="true" tabindex="-1"></a>    &lt;br&gt;</span>
@@ -1693,7 +1766,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb9-414"><a href="#cb9-414" aria-hidden="true" tabindex="-1"></a>So the model parameters: slope $\beta_0=$ <span class="in">`{python} theta[0]`</span> and coefficients $\beta_1=$ <span class="in">`{python} theta[1]`</span>, and $\beta_2=$ <span class="in">`{python} theta[2]`</span>  </span>
 <span id="cb9-415"><a href="#cb9-415" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-416"><a href="#cb9-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-417"><a href="#cb9-417" aria-hidden="true" tabindex="-1"></a>Up next <span class="co">[</span><span class="ot">knn regression</span><span class="co">](/dsandml/knn/index.qmd)</span></span>
+<span id="cb9-417"><a href="#cb9-417" aria-hidden="true" tabindex="-1"></a>Up next <span class="co">[</span><span class="ot">knn regression</span><span class="co">](/posts/knn/index.qmd)</span></span>
 <span id="cb9-418"><a href="#cb9-418" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-419"><a href="#cb9-419" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb9-420"><a href="#cb9-420" aria-hidden="true" tabindex="-1"></a></span>
@@ -1701,7 +1774,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb9-422"><a href="#cb9-422" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-423"><a href="#cb9-423" aria-hidden="true" tabindex="-1"></a>::::{.columns}</span>
 <span id="cb9-424"><a href="#cb9-424" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
-<span id="cb9-425"><a href="#cb9-425" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/multiplelinreg/" target="_blank" style="color:#1877F2; text-decoration: none;"&gt;</span>
+<span id="cb9-425"><a href="#cb9-425" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/multiplelinreg/" target="_blank" style="color:#1877F2; text-decoration: none;"&gt;</span>
 <span id="cb9-426"><a href="#cb9-426" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb9-427"><a href="#cb9-427" aria-hidden="true" tabindex="-1"></a>{{&lt; fa brands facebook size=3x &gt;}}</span>
 <span id="cb9-428"><a href="#cb9-428" aria-hidden="true" tabindex="-1"></a>&lt;/a&gt;</span>
@@ -1709,7 +1782,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb9-430"><a href="#cb9-430" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb9-431"><a href="#cb9-431" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb9-432"><a href="#cb9-432" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
-<span id="cb9-433"><a href="#cb9-433" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/multiplelinreg/" target="_blank" style="color:#0077B5; text-decoration: none;"&gt;</span>
+<span id="cb9-433"><a href="#cb9-433" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/multiplelinreg/" target="_blank" style="color:#0077B5; text-decoration: none;"&gt;</span>
 <span id="cb9-434"><a href="#cb9-434" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb9-435"><a href="#cb9-435" aria-hidden="true" tabindex="-1"></a>{{&lt; fa brands linkedin size=3x &gt;}}</span>
 <span id="cb9-436"><a href="#cb9-436" aria-hidden="true" tabindex="-1"></a>&lt;/a&gt;</span>
@@ -1717,7 +1790,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb9-438"><a href="#cb9-438" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb9-439"><a href="#cb9-439" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb9-440"><a href="#cb9-440" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
-<span id="cb9-441"><a href="#cb9-441" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/multiplelinreg/" target="_blank" style="color:#1DA1F2; text-decoration: none;"&gt;</span>
+<span id="cb9-441"><a href="#cb9-441" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/multiplelinreg/" target="_blank" style="color:#1DA1F2; text-decoration: none;"&gt;</span>
 <span id="cb9-442"><a href="#cb9-442" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb9-443"><a href="#cb9-443" aria-hidden="true" tabindex="-1"></a>{{&lt; fa brands twitter size=3x &gt;}}</span>
 <span id="cb9-444"><a href="#cb9-444" aria-hidden="true" tabindex="-1"></a>&lt;/a&gt;</span>
@@ -1744,7 +1817,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb9-465"><a href="#cb9-465" aria-hidden="true" tabindex="-1"></a>&lt;div id="fb-root"&gt;&lt;/div&gt;</span>
 <span id="cb9-466"><a href="#cb9-466" aria-hidden="true" tabindex="-1"></a>&lt;script async defer crossorigin="anonymous"</span>
 <span id="cb9-467"><a href="#cb9-467" aria-hidden="true" tabindex="-1"></a> src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v20.0"&gt;&lt;/script&gt;</span>
-<span id="cb9-468"><a href="#cb9-468" aria-hidden="true" tabindex="-1"></a>&lt;div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/multiplelinreg/" data-width="800" data-numposts="5"&gt;&lt;/div&gt;</span>
+<span id="cb9-468"><a href="#cb9-468" aria-hidden="true" tabindex="-1"></a>&lt;div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/posts/multiplelinreg/" data-width="750" data-numposts="5"&gt;&lt;/div&gt;</span>
 <span id="cb9-469"><a href="#cb9-469" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-470"><a href="#cb9-470" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-471"><a href="#cb9-471" aria-hidden="true" tabindex="-1"></a></span>

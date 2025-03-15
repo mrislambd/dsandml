@@ -122,8 +122,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
     const options = {
       valueNames: ['listing-image','listing-date','listing-title','listing-author','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-categories"],
+      page: 18,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -285,7 +286,7 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(0)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(93)</span></div><div class="category" data-category="QWxnb3JpdGhtcw==">Algorithms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZQ==">Artificial Intelligence <span class="quarto-category-count">(19)</span></div><div class="category" data-category="QmF5ZXNpYW4lMjBJbmZlcmVuY2U=">Bayesian Inference <span class="quarto-category-count">(2)</span></div><div class="category" data-category="QmF5ZXNpYW4lMjBTdGF0aXN0aWNz">Bayesian Statistics <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RGF0YSUyMEVuZ2luZWVyaW5n">Data Engineering <span class="quarto-category-count">(10)</span></div><div class="category" data-category="RGF0YSUyMFNjaWVuY2U=">Data Science <span class="quarto-category-count">(22)</span></div><div class="category" data-category="TWFjaGluZSUyMExlYXJuaW5n">Machine Learning <span class="quarto-category-count">(22)</span></div><div class="category" data-category="UHJvZ3JhbW1pbmc=">Programming <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHlUb3JjaA==">PyTorch <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3RhdGlzdGljcw==">Statistics <span class="quarto-category-count">(5)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -382,7 +383,7 @@ RSS &amp;=\epsilon_1^2+\epsilon_2^2+\cdots+\epsilon_{10}^2\\
      \hat{\beta_1}&amp;=\frac{\sum_{i=1}^{10}(x_i-\bar{x})(y_i-\bar{y})}{\sum_{i=1}^{10}(x_i-\bar{x})^2}
 \end{align*}\]</span></p>
 <p>Simple Linear Regression <code>slr</code> is applicable for a single feature data set with contineous response variable.</p>
-<div id="65187887" class="cell" data-execution_count="1">
+<div id="3f7bd934" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -402,12 +403,12 @@ RSS &amp;=\epsilon_1^2+\epsilon_2^2+\cdots+\epsilon_{10}^2\\
 <section id="synthetic-data" class="level2">
 <h2 class="anchored" data-anchor-id="synthetic-data">Synthetic Data</h2>
 <p>To implement the algorithm, we need some synthetic data. To generate the synthetic data we use the linear equation <span class="math inline">\(y(x)=2x+\frac{1}{2}+\xi\)</span> where <span class="math inline">\(\xi\sim \mathbf{N}(0,1)\)</span></p>
-<div id="61622aa5" class="cell" data-execution_count="2">
+<div id="bf13d7bd" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>X<span class="op">=</span>np.random.random(<span class="dv">100</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>y<span class="op">=</span><span class="dv">2</span><span class="op">*</span>X<span class="op">+</span><span class="fl">0.5</span><span class="op">+</span>np.random.randn(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Note that we used two random number generators, <code>np.random.random(n)</code> and <code>np.random.randn(n)</code>. The first one generates <span class="math inline">\(n\)</span> random numbers of values from the range (0,1) and the second one generates values from the standard normal distribution with mean 0 and variance or standard deviation 1.</p>
-<div id="ad875367" class="cell" data-execution_count="3">
+<div id="8ae6d9a1" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>,<span class="dv">6</span>))</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(X,y)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'$X$'</span>)</span>
@@ -418,7 +419,7 @@ RSS &amp;=\epsilon_1^2+\epsilon_2^2+\cdots+\epsilon_{10}^2\\
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="index_files/figure-html/cell-4-output-1.png" width="736" height="507" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="index_files/figure-html/cell-4-output-1.png" width="736" height="503" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
@@ -427,67 +428,67 @@ RSS &amp;=\epsilon_1^2+\epsilon_2^2+\cdots+\epsilon_{10}^2\\
 <section id="model" class="level2">
 <h2 class="anchored" data-anchor-id="model">Model</h2>
 <p>We want to fit a simple linear regression to the above data.</p>
-<div id="2529fea8" class="cell" data-execution_count="4">
+<div id="0d60658c" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>slr<span class="op">=</span>LinearRegression()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now to fit our data <span class="math inline">\(X\)</span> and <span class="math inline">\(y\)</span> we need to reshape the input variable. Because if we look at <span class="math inline">\(X\)</span>,</p>
-<div id="a94c0c77" class="cell" data-execution_count="5">
+<div id="3097f2e4" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-overflow-scroll code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>X</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
-<pre><code>array([0.81688875, 0.58717962, 0.04822467, 0.00476192, 0.1502192 ,
-       0.69432947, 0.86741528, 0.82139134, 0.38615894, 0.82420526,
-       0.66272233, 0.49845275, 0.00482793, 0.13175712, 0.22835341,
-       0.98657835, 0.33586142, 0.28844075, 0.4010105 , 0.96226468,
-       0.41679934, 0.27746739, 0.1940937 , 0.22936988, 0.75590724,
-       0.62573443, 0.9623458 , 0.5893854 , 0.01232125, 0.43443802,
-       0.97315879, 0.45743759, 0.46618898, 0.1878946 , 0.78596034,
-       0.14514685, 0.4394143 , 0.00382349, 0.71234813, 0.8034387 ,
-       0.25369083, 0.80043633, 0.18456907, 0.50000231, 0.87836271,
-       0.77296504, 0.25161894, 0.61985035, 0.19463399, 0.49937475,
-       0.51902651, 0.77724388, 0.51049317, 0.09432252, 0.12505526,
-       0.08198314, 0.53636388, 0.10829754, 0.57159671, 0.43362381,
-       0.17796949, 0.27928804, 0.97420916, 0.11099255, 0.19352382,
-       0.37578733, 0.88635791, 0.11340794, 0.76651864, 0.81445183,
-       0.89987381, 0.19634701, 0.02850491, 0.70718502, 0.66976751,
-       0.712816  , 0.40386637, 0.62582879, 0.84330394, 0.3368086 ,
-       0.7260292 , 0.16646112, 0.45204642, 0.14720472, 0.31233984,
-       0.42316774, 0.43757063, 0.68831006, 0.69399484, 0.86412186,
-       0.82671348, 0.9564838 , 0.31789726, 0.08098965, 0.4696654 ,
-       0.8948237 , 0.48439352, 0.6250487 , 0.09646113, 0.01465904])</code></pre>
+<pre><code>array([0.12153459, 0.98003606, 0.75723675, 0.68991404, 0.35855676,
+       0.74458127, 0.21809572, 0.4437414 , 0.61455326, 0.90341882,
+       0.81023381, 0.30100045, 0.344852  , 0.56826979, 0.45586393,
+       0.71106181, 0.9098261 , 0.09050414, 0.50733467, 0.93673449,
+       0.50236091, 0.72835098, 0.95705529, 0.89703532, 0.99874336,
+       0.06083706, 0.5285283 , 0.54782794, 0.26964772, 0.23580455,
+       0.14108531, 0.74511764, 0.88133749, 0.51257772, 0.62073779,
+       0.63299256, 0.70813237, 0.90864786, 0.27218186, 0.48053661,
+       0.44493683, 0.43319228, 0.28653816, 0.18211944, 0.47223873,
+       0.53799176, 0.9094891 , 0.22060603, 0.99661895, 0.05216942,
+       0.42368169, 0.98895571, 0.82560188, 0.46418668, 0.30699563,
+       0.59000034, 0.32803648, 0.83375187, 0.47899554, 0.14618461,
+       0.3977745 , 0.60558134, 0.35416893, 0.26709669, 0.73427559,
+       0.46601254, 0.3394126 , 0.82651124, 0.67211768, 0.42288856,
+       0.78209983, 0.80448672, 0.53732886, 0.7363726 , 0.30401019,
+       0.24193765, 0.33714153, 0.82212057, 0.93433662, 0.79826924,
+       0.3083396 , 0.1093577 , 0.96698982, 0.18869062, 0.00796682,
+       0.34071034, 0.61718039, 0.80287829, 0.3709304 , 0.45257034,
+       0.32360028, 0.02664802, 0.53004806, 0.07189511, 0.65584488,
+       0.30285743, 0.11719238, 0.2560608 , 0.17164437, 0.35390792])</code></pre>
 </div>
 </div>
 <p>It is a one-dimensional array/vector but the <code>slr</code> object accepts input variable as matrix or two-dimensional format.</p>
-<div id="f7299c22" class="cell" data-execution_count="6">
+<div id="2b9b8d4f" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>X<span class="op">=</span>X.reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>X[:<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
-<pre><code>array([[0.81688875],
-       [0.58717962],
-       [0.04822467],
-       [0.00476192],
-       [0.1502192 ],
-       [0.69432947],
-       [0.86741528],
-       [0.82139134],
-       [0.38615894],
-       [0.82420526]])</code></pre>
+<pre><code>array([[0.12153459],
+       [0.98003606],
+       [0.75723675],
+       [0.68991404],
+       [0.35855676],
+       [0.74458127],
+       [0.21809572],
+       [0.4437414 ],
+       [0.61455326],
+       [0.90341882]])</code></pre>
 </div>
 </div>
 <p>Now we fit the data to our model</p>
-<div id="1ca3a09a" class="cell" data-execution_count="7">
+<div id="0c724cfa" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>slr.fit(X,y)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>slr.predict([[<span class="dv">2</span>],[<span class="dv">3</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
-<pre><code>array([4.56771642, 6.56126928])</code></pre>
+<pre><code>array([4.58011493, 6.59192422])</code></pre>
 </div>
 </div>
 <p>We have our <span class="math inline">\(X=2,3\)</span> and the corresponding <span class="math inline">\(y\)</span> values are from the above cell output, which are pretty close to the model <span class="math inline">\(y=2x+\frac{1}{2}\)</span>.</p>
-<div id="352f3e77" class="cell" data-execution_count="8">
+<div id="449683df" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>intercept <span class="op">=</span> <span class="bu">round</span>(slr.intercept_,<span class="dv">4</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>slope <span class="op">=</span> slr.coef_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now our model parameters are: intercept <span class="math inline">\(\beta_0=\)</span> 0.5806 and slope <span class="math inline">\(\beta_1=\)</span> array([1.99355286]).</p>
-<div id="a4337921" class="cell" data-execution_count="9">
+<p>Now our model parameters are: intercept <span class="math inline">\(\beta_0=\)</span> 0.5565 and slope <span class="math inline">\(\beta_1=\)</span> array([2.01180929]).</p>
+<div id="412c7d56" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>,<span class="dv">6</span>))</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(X,y, alpha<span class="op">=</span><span class="fl">0.7</span>,label<span class="op">=</span><span class="st">"Sample Data"</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>plt.plot(np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">100</span>),</span>
@@ -509,27 +510,27 @@ RSS &amp;=\epsilon_1^2+\epsilon_2^2+\cdots+\epsilon_{10}^2\\
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="index_files/figure-html/cell-10-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="index_files/figure-html/cell-10-output-1.png" width="736" height="507" class="figure-img"></a></p>
+<p><a href="index_files/figure-html/cell-10-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="index_files/figure-html/cell-10-output-1.png" width="736" height="503" class="figure-img"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p>So the model fits the data almost perfectly.</p>
-<p>Up next <a href="../../dsandml/multiplelinreg/index.qmd">multiple linear regression</a>.</p>
+<p>Up next <a href="../../posts/multiplelinreg/index.html">multiple linear regression</a>.</p>
 <p><strong>Share on</strong></p>
 <div class="columns">
 <div class="column" style="width:33%;">
-<p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/simplelinreg/" target="_blank" style="color:#1877F2; text-decoration: none;"></a></p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/simplelinreg/" target="_blank" style="color:#1877F2; text-decoration: none;">
+<p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/simplelinreg/" target="_blank" style="color:#1877F2; text-decoration: none;"></a></p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/simplelinreg/" target="_blank" style="color:#1877F2; text-decoration: none;">
 <p><i class="fa-brands fa-facebook fa-3x" aria-label="facebook"></i></p>
-</a><p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/simplelinreg/" target="_blank" style="color:#1877F2; text-decoration: none;"></a></p>
+</a><p><a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/simplelinreg/" target="_blank" style="color:#1877F2; text-decoration: none;"></a></p>
 </div><div class="column" style="width:33%;">
-<p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/simplelinreg/" target="_blank" style="color:#0077B5; text-decoration: none;"></a></p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/simplelinreg/" target="_blank" style="color:#0077B5; text-decoration: none;">
+<p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/simplelinreg/" target="_blank" style="color:#0077B5; text-decoration: none;"></a></p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/simplelinreg/" target="_blank" style="color:#0077B5; text-decoration: none;">
 <p><i class="fa-brands fa-linkedin fa-3x" aria-label="linkedin"></i></p>
-</a><p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/simplelinreg/" target="_blank" style="color:#0077B5; text-decoration: none;"></a></p>
+</a><p><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/simplelinreg/" target="_blank" style="color:#0077B5; text-decoration: none;"></a></p>
 </div><div class="column" style="width:33%;">
-<p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/simplelinreg/" target="_blank" style="color:#1DA1F2; text-decoration: none;"></a></p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/simplelinreg/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
+<p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/simplelinreg/" target="_blank" style="color:#1DA1F2; text-decoration: none;"></a></p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/simplelinreg/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
 <p><i class="fa-brands fa-twitter fa-3x" aria-label="twitter"></i></p>
-</a><p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/simplelinreg/" target="_blank" style="color:#1DA1F2; text-decoration: none;"></a></p>
+</a><p><a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/simplelinreg/" target="_blank" style="color:#1DA1F2; text-decoration: none;"></a></p>
 </div>
 </div>
 <script src="https://giscus.app/client.js" data-repo="mrislambd/mrislambd.github.io" data-repo-id="R_kgDOMV8crA" data-category="Announcements" data-category-id="DIC_kwDOMV8crM4CjbQW" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
@@ -538,7 +539,7 @@ RSS &amp;=\epsilon_1^2+\epsilon_2^2+\cdots+\epsilon_{10}^2\\
 
 </div>
 <script async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v20.0"></script>
-<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/simplelinreg/" data-width="800" data-numposts="5">
+<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/posts/simplelinreg/" data-width="750" data-numposts="5">
 
 </div>
 <p><strong>You may also like</strong></p>
@@ -552,7 +553,79 @@ RSS &amp;=\epsilon_1^2+\epsilon_2^2+\cdots+\epsilon_{10}^2\\
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-
+<div class="g-col-1" data-index="0" data-categories="TWFjaGluZSUyMExlYXJuaW5nJTJDRGF0YSUyMFNjaWVuY2UlMkNCYXllc2lhbiUyMEluZmVyZW5jZSUyQ0JheWVzaWFuJTIwU3RhdGlzdGljcyUyQ1N0YXRpc3RpY3M=" data-listing-date-sort="1729555200000" data-listing-file-modified-sort="1742014688633" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2300">
+<a href="../../posts/bayesianclassification/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../../posts/bayesianclassification/Bayeslearn.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Bayesian Probabilistic Models for Classification
+</h5>
+<div class="listing-reading-time card-text text-muted">
+12 min
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rafiq Islam
+</div>
+<div class="listing-date">
+Tuesday, October 22, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="TWFjaGluZSUyMExlYXJuaW5nJTJDRGF0YSUyMFNjaWVuY2UlMkNCYXllc2lhbiUyMEluZmVyZW5jZSUyQ0JheWVzaWFuJTIwU3RhdGlzdGljcyUyQ1N0YXRpc3RpY3M=" data-listing-date-sort="1733097600000" data-listing-file-modified-sort="1742014688632" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1271">
+<a href="../../posts/adaboost/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../../posts/adaboost/ada1.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Boosting Algorithm: Adaptive Boosting Method (AdaBoost)
+</h5>
+<div class="listing-reading-time card-text text-muted">
+7 min
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rafiq Islam
+</div>
+<div class="listing-date">
+Monday, December 2, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="U3RhdGlzdGljcyUyQ0RhdGElMjBTY2llbmNlJTJDRGF0YSUyMEVuZ2luZWVyaW5nJTJDTWFjaGluZSUyMExlYXJuaW5nJTJDQXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZQ==" data-listing-date-sort="1728518400000" data-listing-file-modified-sort="1742014688702" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2365">
+<a href="../../posts/naivebayes/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="../bayesianclassification/Bayeslearn.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Classification using Naive Bayes algorithm
+</h5>
+<div class="listing-reading-time card-text text-muted">
+12 min
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rafiq Islam
+</div>
+<div class="listing-date">
+Thursday, October 10, 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
@@ -1190,7 +1263,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="an">lightbox:</span><span class="co"> true</span></span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> slr.png</span></span>
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="an">listing:</span><span class="co"> </span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">    contents: "/../../dsandml"</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">    contents: "/../../posts"</span></span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">    max-items: 3</span></span>
 <span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">    type: grid</span></span>
 <span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co">    categories: true</span></span>
@@ -1230,7 +1303,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a> $$  </span>
 <span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a>&lt;p style="text-align: justify"&gt;</span>
-<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a>    where $\mathbf{\beta} \in \mathbb{R}^d$ are regression parameters or constant values that we aim to estimate and $\epsilon \sim \mathcal{N}(0,1)$ is a normally distributed error term independent of $x$ or also called the white noise.  </span>
+<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a>    where $\mathbf{\beta} \in \mathbb{R}^d$ are regression parameters or constant values that we aim to estimate and $\epsilon \sim \mathcal{N}(0,1)$ is a normally distributed error term independent of $x$ or also called the white noise. </span>
 <span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a>&lt;/p&gt; </span>
 <span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a>In this case, the model:</span>
@@ -1405,7 +1478,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-241"><a href="#cb13-241" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-242"><a href="#cb13-242" aria-hidden="true" tabindex="-1"></a>So the model fits the data almost perfectly.  </span>
 <span id="cb13-243"><a href="#cb13-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-244"><a href="#cb13-244" aria-hidden="true" tabindex="-1"></a>Up next <span class="co">[</span><span class="ot">multiple linear regression</span><span class="co">](/dsandml/multiplelinreg/index.qmd)</span>.  </span>
+<span id="cb13-244"><a href="#cb13-244" aria-hidden="true" tabindex="-1"></a>Up next <span class="co">[</span><span class="ot">multiple linear regression</span><span class="co">](/posts/multiplelinreg/index.qmd)</span>.  </span>
 <span id="cb13-245"><a href="#cb13-245" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-246"><a href="#cb13-246" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-247"><a href="#cb13-247" aria-hidden="true" tabindex="-1"></a></span>
@@ -1415,7 +1488,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-251"><a href="#cb13-251" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-252"><a href="#cb13-252" aria-hidden="true" tabindex="-1"></a>::::{.columns}</span>
 <span id="cb13-253"><a href="#cb13-253" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
-<span id="cb13-254"><a href="#cb13-254" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/simplelinreg/" target="_blank" style="color:#1877F2; text-decoration: none;"&gt;</span>
+<span id="cb13-254"><a href="#cb13-254" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/simplelinreg/" target="_blank" style="color:#1877F2; text-decoration: none;"&gt;</span>
 <span id="cb13-255"><a href="#cb13-255" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb13-256"><a href="#cb13-256" aria-hidden="true" tabindex="-1"></a>{{&lt; fa brands facebook size=3x &gt;}}</span>
 <span id="cb13-257"><a href="#cb13-257" aria-hidden="true" tabindex="-1"></a>&lt;/a&gt;</span>
@@ -1423,7 +1496,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-259"><a href="#cb13-259" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb13-260"><a href="#cb13-260" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb13-261"><a href="#cb13-261" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
-<span id="cb13-262"><a href="#cb13-262" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/simplelinreg/" target="_blank" style="color:#0077B5; text-decoration: none;"&gt;</span>
+<span id="cb13-262"><a href="#cb13-262" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/simplelinreg/" target="_blank" style="color:#0077B5; text-decoration: none;"&gt;</span>
 <span id="cb13-263"><a href="#cb13-263" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb13-264"><a href="#cb13-264" aria-hidden="true" tabindex="-1"></a>{{&lt; fa brands linkedin size=3x &gt;}}</span>
 <span id="cb13-265"><a href="#cb13-265" aria-hidden="true" tabindex="-1"></a>&lt;/a&gt;</span>
@@ -1431,7 +1504,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-267"><a href="#cb13-267" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb13-268"><a href="#cb13-268" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb13-269"><a href="#cb13-269" aria-hidden="true" tabindex="-1"></a>:::{.column width="33%"}</span>
-<span id="cb13-270"><a href="#cb13-270" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/simplelinreg/" target="_blank" style="color:#1DA1F2; text-decoration: none;"&gt;</span>
+<span id="cb13-270"><a href="#cb13-270" aria-hidden="true" tabindex="-1"></a>&lt;a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/simplelinreg/" target="_blank" style="color:#1DA1F2; text-decoration: none;"&gt;</span>
 <span id="cb13-271"><a href="#cb13-271" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb13-272"><a href="#cb13-272" aria-hidden="true" tabindex="-1"></a>{{&lt; fa brands twitter size=3x &gt;}}</span>
 <span id="cb13-273"><a href="#cb13-273" aria-hidden="true" tabindex="-1"></a>&lt;/a&gt;</span>
@@ -1458,12 +1531,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-294"><a href="#cb13-294" aria-hidden="true" tabindex="-1"></a>&lt;div id="fb-root"&gt;&lt;/div&gt;</span>
 <span id="cb13-295"><a href="#cb13-295" aria-hidden="true" tabindex="-1"></a>&lt;script async defer crossorigin="anonymous"</span>
 <span id="cb13-296"><a href="#cb13-296" aria-hidden="true" tabindex="-1"></a> src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v20.0"&gt;&lt;/script&gt;</span>
-<span id="cb13-297"><a href="#cb13-297" aria-hidden="true" tabindex="-1"></a>&lt;div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/simplelinreg/" data-width="800" data-numposts="5"&gt;&lt;/div&gt;</span>
+<span id="cb13-297"><a href="#cb13-297" aria-hidden="true" tabindex="-1"></a>&lt;div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/posts/simplelinreg/" data-width="750" data-numposts="5"&gt;&lt;/div&gt;</span>
 <span id="cb13-298"><a href="#cb13-298" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-299"><a href="#cb13-299" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-300"><a href="#cb13-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-301"><a href="#cb13-301" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-302"><a href="#cb13-302" aria-hidden="true" tabindex="-1"></a>**You may also like**</span>
+<span id="cb13-301"><a href="#cb13-301" aria-hidden="true" tabindex="-1"></a>**You may also like**</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
