@@ -2,102 +2,102 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mrislambd.github.io/codepages/titanic/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.488Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.011Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/adaboost/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.632Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.156Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/biasvariance/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.633Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.157Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/multiclass/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.699Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.223Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/kmeans/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.697Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.220Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/randomforest/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.704Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.228Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/pca/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.702Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.226Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/pytorch/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.704Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.227Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/knn/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.698Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.221Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/eda/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.696Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.220Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/datacollection/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.634Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.157Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/logreg/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.699Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.222Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.630Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.153Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/regularization/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.705Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.228Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/lda/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.698Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.222Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/simplelinreg/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.705Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.228Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/classificationmetrics/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.634Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.157Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/bayesianclassification/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.633Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.156Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/polyreg/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.703Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.226Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/svm/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.705Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.229Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/gradientboosting/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.697Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.220Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/multiplelinreg/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.701Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.225Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/decisiontree/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.636Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.160Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/dataengineering/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.634Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.158Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/naivebayes/index.html</loc>
-    <lastmod>2025-03-15T04:58:08.702Z</lastmod>
+    <lastmod>2025-03-15T22:50:18.226Z</lastmod>
   </url>
 </urlset>
