@@ -8,12 +8,32 @@ search: true
 lightbox: true
 image: dtree.jpeg
 listing: 
-    contents: "/../../dsandml"
+    contents: "/../../posts"
     max-items: 3
     type: grid
     categories: false
     date-format: full
     fields: [image, date, title, author, reading-time]
+format: 
+    html: default
+    ipynb: default
+    docx: 
+      toc: true
+      adsense:
+        enable-ads: false
+    epub:
+      toc: true
+      adsense:
+        enable-ads: false
+    pdf: 
+      toc: true
+      pdf-engine: pdflatex
+      adsense:
+        enable-ads: false
+      number-sections: false
+      colorlinks: true
+      cite-method: biblatex
+toc-depth: 4
 ---  
 
 ## Decision Tree  
@@ -130,7 +150,7 @@ plt.show()
 
 At this point, we see that the classes are not linearly separable, meaning, we can not draw any line that separate the two classes. Notice that the minimum and maximum of feature $x_0$ is 1 and 15, respectively. So, let's pick a few numbers in between these two numbers. Say, our first number is $3.5$. In the first node, that is the root node, we divide the data based on the feature $x_0\le 3.5$  
 
-![Figure 2: First Split](/dsandml/decisiontree/root.png)  
+![Figure 2: First Split](/posts/decisiontree/root.png)  
 
 At the root node, we have equal number of blue and red points so the proportion of the data class is $p_1=p_2=0.5$, so the entropy  
 
@@ -151,7 +171,7 @@ $$IG(split_1)=1-\left(\frac{5}{20}\cdot 0+\frac{15}{20}\cdot 0.92\right)=0.31$$
 
 Now the burning question is how did we select the condition $x_0\le 3.5$? It could have been any other number, say we set $x_0\le 6.5$. Then  
 
-![Figure 3: Alternative Split](/dsandml/decisiontree/op1.png)  
+![Figure 3: Alternative Split](/posts/decisiontree/op1.png)  
 
 Based on the condition $x_0\le 6.5$, the left and right child recieves 11 and 9 feature points $X=(x_0,x_1)$, respectively. But in this case we don't see any pure nodes and the entropies at these child nodes
 
@@ -166,7 +186,7 @@ $$IG(split_1)=1-\left(\frac{11}{20}\cdot 0.95+\frac{9}{20}\cdot 0.92\right)=0.06
 
 Note that the information gain is much lower than the first option. Therefore, the first split is better than this alternative split. Because the goal is to have minimum entropy value and/or the maximum information gain. This is where the machine learning gets in the game. The algorithm finds the optimal split based on each feature values.
 
-![Figure 4: Second Split](/dsandml/decisiontree/tree.png)  
+![Figure 4: Second Split](/posts/decisiontree/tree.png)  
 
 Now say we have a new set of feature values $(x_0,x_1,Class)=(10,7,1)$. Based on our tree above, since $x_0$ is NOT less than or equal to $3.5$ so it goes to the right first child. Then it satisfies $x_0\le 10$. So it moves to the left grand child gradually traverse through the tree and ended up to the very bottom layer left leaf node.
 
@@ -231,25 +251,51 @@ plt.show()
 
 **Share on**  
 
+::::{.columns}
+:::{.column width="33%"}
+<a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/decisiontree/" target="_blank" style="color:#1877F2; text-decoration: none;">
+ 
+{{< fa brands facebook size=3x >}}
+</a>
+ 
+:::
+ 
+:::{.column width="33%"}
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/decisiontree/" target="_blank" style="color:#0077B5; text-decoration: none;">
+ 
+{{< fa brands linkedin size=3x >}}
+</a>
+ 
+:::
+ 
+:::{.column width="33%"}
+<a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/decisiontree/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
+ 
+{{< fa brands twitter size=3x >}}
+</a>
+ 
+:::
+::::
+ 
+<script src="https://giscus.app/client.js"
+        data-repo="mrislambd/mrislambd.github.io" 
+        data-repo-id="R_kgDOMV8crA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOMV8crM4CjbQW"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+ 
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous"
  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0"></script>
- 
-<div class="share-buttons">
-<div class="fb-share-button" data-href="https://mrislambd.github.io/posts/decisiontree/"
-data-layout="button_count" data-size="small"><a target="_blank" 
- href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmrislambd.github.io%2Fposts%2Fdecisiontree%2F&amp;src=sdkpreparse" 
- class="fb-xfbml-parse-ignore">Share</a></div>
-
-<script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
-<script type="IN/Share" data-url="https://mrislambd.github.io/posts/decisiontree/"></script> 
- 
-<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" 
- data-url="https://mrislambd.github.io/posts/decisiontree/" data-show-count="true">Tweet</a>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-
-<div class="fb-comments" data-href="https://mrislambd.github.io/posts/decisiontree/"
- data-width="" data-numposts="5"></div>  
+<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/posts/decisiontree/" data-width="750" data-numposts="5"></div>
 
  **You may also like**

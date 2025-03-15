@@ -8,15 +8,32 @@ search: true
 lightbox: true
 image: bv.png
 listing: 
-    contents: "/../../dsandml"
+    contents: "/../../posts"
     max-items: 3
     type: grid
     categories: false
     date-format: full
     fields: [image, date, title, author, reading-time]  
 format: 
-    html: 
+    html: default
+    ipynb: default
+    docx: 
       toc: true
+      adsense:
+        enable-ads: false
+    epub:
+      toc: true
+      adsense:
+        enable-ads: false
+    pdf: 
+      toc: true
+      pdf-engine: pdflatex
+      adsense:
+        enable-ads: false
+      number-sections: false
+      colorlinks: true
+      cite-method: biblatex
+toc-depth: 4
 ---  
 
 ## Introduction
@@ -216,26 +233,53 @@ Understanding and visualizing this tradeoff helps machine learning practitioners
 
 
 **Share on**  
+
+::::{.columns}
+:::{.column width="33%"}
+<a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/biasvariance/" target="_blank" style="color:#1877F2; text-decoration: none;">
+ 
+{{< fa brands facebook size=3x >}}
+</a>
+ 
+:::
+ 
+:::{.column width="33%"}
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/biasvariance/" target="_blank" style="color:#0077B5; text-decoration: none;">
+ 
+{{< fa brands linkedin size=3x >}}
+</a>
+ 
+:::
+ 
+:::{.column width="33%"}
+<a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/biasvariance/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
+ 
+{{< fa brands twitter size=3x >}}
+</a>
+ 
+:::
+::::
+ 
+<script src="https://giscus.app/client.js"
+        data-repo="mrislambd/mrislambd.github.io" 
+        data-repo-id="R_kgDOMV8crA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOMV8crM4CjbQW"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+ 
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous"
  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0"></script>
- 
-<div class="share-buttons">
-<div class="fb-share-button" data-href="https://mrislambd.github.io/dsandml/biasvariance/"
-data-layout="button_count" data-size="small"><a target="_blank" 
- href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmrislambd.github.io%2Fdsandml%2Fbiasvariance%2F&amp;src=sdkpreparse" 
- class="fb-xfbml-parse-ignore">Share</a></div>
-
-<script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
-<script type="IN/Share" data-url="https://mrislambd.github.io/dsandml/biasvariance/"></script> 
- 
-<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" 
- data-url="https://mrislambd.github.io/dsandml/biasvariance/" data-show-count="true">Tweet</a>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-
-<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/biasvariance/"
- data-width="" data-numposts="5"></div>  
+<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/posts/biasvariance/" data-width="750" data-numposts="5"></div>
 
  **You may also like**
 

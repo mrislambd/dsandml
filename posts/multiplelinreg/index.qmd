@@ -8,7 +8,7 @@ image: mlr.jpeg
 search: true
 lightbox: true
 listing: 
-    contents: "/../../dsandml"
+    contents: "/../../posts"
     max-items: 3
     type: grid
     categories: true
@@ -137,7 +137,7 @@ $$
 ### Gradient Descent  
 
 <p style="text-align: justify">
-    <img align="right" height=350 width=450 src="/dsandml/multiplelinreg/gradient_descent.gif" alt="Collected from gbhat.com" style="margin-left: 20px; margin-bottom: 20px"/>
+    <img align="right" height=350 width=450 src="/posts/multiplelinreg/gradient_descent.gif" alt="Collected from gbhat.com" style="margin-left: 20px; margin-bottom: 20px"/>
     <br>
     GIF Credit: <a href="https://gbhat.com/machine_learning/gradient_descent_anim.html" target="_blank" style="text-decoration:none">gbhat.com</a>    
     <br>
@@ -404,7 +404,7 @@ theta, _ = mlr3.fit(X, y)
 So the model parameters: slope $\beta_0=$ `{python} theta[0]` and coefficients $\beta_1=$ `{python} theta[1]`, and $\beta_2=$ `{python} theta[2]`  
 
 
-Up next [knn regression](/dsandml/knn/index.qmd)
+Up next [knn regression](/posts/knn/index.qmd)
 
 ---
 
@@ -412,7 +412,7 @@ Up next [knn regression](/dsandml/knn/index.qmd)
 
 ::::{.columns}
 :::{.column width="33%"}
-<a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/multiplelinreg/" target="_blank" style="color:#1877F2; text-decoration: none;">
+<a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/multiplelinreg/" target="_blank" style="color:#1877F2; text-decoration: none;">
  
 {{< fa brands facebook size=3x >}}
 </a>
@@ -420,7 +420,7 @@ Up next [knn regression](/dsandml/knn/index.qmd)
 :::
  
 :::{.column width="33%"}
-<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/multiplelinreg/" target="_blank" style="color:#0077B5; text-decoration: none;">
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/multiplelinreg/" target="_blank" style="color:#0077B5; text-decoration: none;">
  
 {{< fa brands linkedin size=3x >}}
 </a>
@@ -428,7 +428,7 @@ Up next [knn regression](/dsandml/knn/index.qmd)
 :::
  
 :::{.column width="33%"}
-<a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/multiplelinreg/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
+<a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/multiplelinreg/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
  
 {{< fa brands twitter size=3x >}}
 </a>
@@ -455,7 +455,7 @@ Up next [knn regression](/dsandml/knn/index.qmd)
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous"
  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0"></script>
-<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/multiplelinreg/" data-width="800" data-numposts="5"></div>
+<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/posts/multiplelinreg/" data-width="750" data-numposts="5"></div>
 
 
 

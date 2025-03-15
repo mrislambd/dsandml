@@ -8,7 +8,7 @@ search: true
 lightbox: true
 image: svm.png
 listing: 
-    contents: "/../../dsandml"
+    contents: "/../../posts"
     max-items: 3
     type: grid
     categories: true
@@ -811,7 +811,7 @@ plt.show()
 
 ::::{.columns}
 :::{.column width="33%"}
-<a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/svm/" target="_blank" style="color:#1877F2; text-decoration: none;">
+<a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/svm/" target="_blank" style="color:#1877F2; text-decoration: none;">
  
 {{< fa brands facebook size=3x >}}
 </a>
@@ -819,7 +819,7 @@ plt.show()
 :::
  
 :::{.column width="33%"}
-<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/svm/" target="_blank" style="color:#0077B5; text-decoration: none;">
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/svm/" target="_blank" style="color:#0077B5; text-decoration: none;">
  
 {{< fa brands linkedin size=3x >}}
 </a>
@@ -827,7 +827,7 @@ plt.show()
 :::
  
 :::{.column width="33%"}
-<a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/svm/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
+<a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/svm/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
  
 {{< fa brands twitter size=3x >}}
 </a>
@@ -854,6 +854,6 @@ plt.show()
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous"
  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0"></script>
-<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/svm/" data-width="800" data-numposts="5"></div>  
+<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/posts/svm/" data-width="750" data-numposts="5"></div>
 
 **You may also like**

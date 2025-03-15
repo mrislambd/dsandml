@@ -8,12 +8,32 @@ search: true
 image: gb.webp
 lightbox: true
 listing: 
-    contents: "/../../dsandml"
+    contents: "/../../posts"
     max-items: 3
     type: grid
     categories: true
     date-format: full
     fields: [image, date, title, author, reading-time]
+format: 
+    html: default
+    ipynb: default
+    docx: 
+      toc: true
+      adsense:
+        enable-ads: false
+    epub:
+      toc: true
+      adsense:
+        enable-ads: false
+    pdf: 
+      toc: true
+      pdf-engine: pdflatex
+      adsense:
+        enable-ads: false
+      number-sections: false
+      colorlinks: true
+      cite-method: biblatex
+toc-depth: 4
 ---
 
 ## Introduction
@@ -36,7 +56,7 @@ Random Forest is an ensemble learning method that builds multiple decision trees
 
 To understand Random Forest, we first need to recap how a decision tree works and then explore how Random Forest extends this idea.
 
-### [Decision Tree Recap](/dsandml/decisiontree/index.qmd){target="_blank" style="text-decoration:none"}
+### [Decision Tree Recap](/posts/decisiontree/index.qmd){target="_blank" style="text-decoration:none"}
 A decision tree is a tree-structured model where each internal node represents a "test" on an attribute (e.g., whether the feature value is above or below a threshold), each branch represents the outcome of the test, and each leaf node represents a class label (classification) or a value (regression).  
 
 - For **classification**, the goal is to partition the data such that the class labels in each partition are as homogeneous as possible.  
@@ -313,6 +333,57 @@ Random Forest is a highly flexible, non-parametric machine learning algorithm th
 2. Pedregosa, F., et al. (2011). "Scikit-learn: Machine Learning in Python". Journal of Machine Learning Research, 12, 2825-2830.
 3. Hastie, T., Tibshirani, R., & Friedman, J. (2009). "The Elements of Statistical Learning". Springer Series in Statistics.
 
+
+**Share on**  
+
+::::{.columns}
+:::{.column width="33%"}
+<a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/randomforest/" target="_blank" style="color:#1877F2; text-decoration: none;">
+ 
+{{< fa brands facebook size=3x >}}
+</a>
+ 
+:::
+ 
+:::{.column width="33%"}
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/randomforest/" target="_blank" style="color:#0077B5; text-decoration: none;">
+ 
+{{< fa brands linkedin size=3x >}}
+</a>
+ 
+:::
+ 
+:::{.column width="33%"}
+<a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/randomforest/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
+ 
+{{< fa brands twitter size=3x >}}
+</a>
+ 
+:::
+::::
+ 
+<script src="https://giscus.app/client.js"
+        data-repo="mrislambd/mrislambd.github.io" 
+        data-repo-id="R_kgDOMV8crA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOMV8crM4CjbQW"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+ 
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+ src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0"></script>
+<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/posts/randomforest/" data-width="750" data-numposts="5"></div>
+
+**You may also like**  
 
 
 

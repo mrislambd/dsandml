@@ -8,7 +8,7 @@ search: true
 lightbox: true
 image: slr.png
 listing: 
-    contents: "/../../dsandml"
+    contents: "/../../posts"
     max-items: 3
     type: grid
     categories: true
@@ -48,7 +48,7 @@ A simple linear regression in multiple predictors/input variables/features/indep
  $$  
 
 <p style="text-align: justify">
-    where $\mathbf{\beta} \in \mathbb{R}^d$ are regression parameters or constant values that we aim to estimate and $\epsilon \sim \mathcal{N}(0,1)$ is a normally distributed error term independent of $x$ or also called the white noise.  
+    where $\mathbf{\beta} \in \mathbb{R}^d$ are regression parameters or constant values that we aim to estimate and $\epsilon \sim \mathcal{N}(0,1)$ is a normally distributed error term independent of $x$ or also called the white noise. 
 </p> 
 
 In this case, the model:
@@ -223,7 +223,7 @@ plt.show()
 
 So the model fits the data almost perfectly.  
 
-Up next [multiple linear regression](/dsandml/multiplelinreg/index.qmd).  
+Up next [multiple linear regression](/posts/multiplelinreg/index.qmd).  
 
 
 
@@ -233,7 +233,7 @@ Up next [multiple linear regression](/dsandml/multiplelinreg/index.qmd).
 
 ::::{.columns}
 :::{.column width="33%"}
-<a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/simplelinreg/" target="_blank" style="color:#1877F2; text-decoration: none;">
+<a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/simplelinreg/" target="_blank" style="color:#1877F2; text-decoration: none;">
  
 {{< fa brands facebook size=3x >}}
 </a>
@@ -241,7 +241,7 @@ Up next [multiple linear regression](/dsandml/multiplelinreg/index.qmd).
 :::
  
 :::{.column width="33%"}
-<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/simplelinreg/" target="_blank" style="color:#0077B5; text-decoration: none;">
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/simplelinreg/" target="_blank" style="color:#0077B5; text-decoration: none;">
  
 {{< fa brands linkedin size=3x >}}
 </a>
@@ -249,7 +249,7 @@ Up next [multiple linear regression](/dsandml/multiplelinreg/index.qmd).
 :::
  
 :::{.column width="33%"}
-<a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/simplelinreg/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
+<a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/simplelinreg/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
  
 {{< fa brands twitter size=3x >}}
 </a>
@@ -276,8 +276,7 @@ Up next [multiple linear regression](/dsandml/multiplelinreg/index.qmd).
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous"
  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0"></script>
-<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/simplelinreg/" data-width="800" data-numposts="5"></div>
-
+<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/posts/simplelinreg/" data-width="750" data-numposts="5"></div>
 
 
 

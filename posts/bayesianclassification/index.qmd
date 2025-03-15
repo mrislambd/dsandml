@@ -8,7 +8,7 @@ lightbox: true
 image: Bayeslearn.png
 search: true
 listing: 
-    contents: "/../../dsandml"
+    contents: "/../../posts"
     max-items: 3
     type: grid
     categories: true
@@ -445,7 +445,7 @@ Because of the quadratic term, the decision boundaries in QDA are generally **qu
 
 ::::{.columns}
 :::{.column width="33%"}
-<a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/bayesianclassification/" target="_blank" style="color:#1877F2; text-decoration: none;">
+<a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/bayesianclassification/" target="_blank" style="color:#1877F2; text-decoration: none;">
  
 {{< fa brands facebook size=3x >}}
 </a>
@@ -453,7 +453,7 @@ Because of the quadratic term, the decision boundaries in QDA are generally **qu
 :::
  
 :::{.column width="33%"}
-<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/bayesianclassification/" target="_blank" style="color:#0077B5; text-decoration: none;">
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/bayesianclassification/" target="_blank" style="color:#0077B5; text-decoration: none;">
  
 {{< fa brands linkedin size=3x >}}
 </a>
@@ -461,7 +461,7 @@ Because of the quadratic term, the decision boundaries in QDA are generally **qu
 :::
  
 :::{.column width="33%"}
-<a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/bayesianclassification/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
+<a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/bayesianclassification/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
  
 {{< fa brands twitter size=3x >}}
 </a>
@@ -488,7 +488,7 @@ Because of the quadratic term, the decision boundaries in QDA are generally **qu
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous"
  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0"></script>
-<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/bayesianclassification/" data-width="800" data-numposts="5"></div>
+<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/posts/bayesianclassification/" data-width="750" data-numposts="5"></div>
 
 
 **You may also like**

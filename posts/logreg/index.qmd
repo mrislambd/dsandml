@@ -8,12 +8,32 @@ search: true
 image: logreg.png
 lightbox: true
 listing: 
-    contents: "/../../dsandml"
+    contents: "/../../posts"
     max-items: 3
     type: grid
     categories: true
     date-format: full
     fields: [image, date, title, author, reading-time]
+format: 
+    html: default
+    ipynb: default
+    docx: 
+      toc: true
+      adsense:
+        enable-ads: false
+    epub:
+      toc: true
+      adsense:
+        enable-ads: false
+    pdf: 
+      toc: true
+      pdf-engine: pdflatex
+      adsense:
+        enable-ads: false
+      number-sections: false
+      colorlinks: true
+      cite-method: biblatex
+toc-depth: 4
 ---  
 
 
@@ -273,7 +293,7 @@ print(np.round(accuracy_score(predicted_y, y_test),2))
 
 ::::{.columns}
 :::{.column width="33%"}
-<a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/logreg/" target="_blank" style="color:#1877F2; text-decoration: none;">
+<a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/logreg/" target="_blank" style="color:#1877F2; text-decoration: none;">
  
 {{< fa brands facebook size=3x >}}
 </a>
@@ -281,7 +301,7 @@ print(np.round(accuracy_score(predicted_y, y_test),2))
 :::
  
 :::{.column width="33%"}
-<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/logreg/" target="_blank" style="color:#0077B5; text-decoration: none;">
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/logreg/" target="_blank" style="color:#0077B5; text-decoration: none;">
  
 {{< fa brands linkedin size=3x >}}
 </a>
@@ -289,7 +309,7 @@ print(np.round(accuracy_score(predicted_y, y_test),2))
 :::
  
 :::{.column width="33%"}
-<a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/logreg/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
+<a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/logreg/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
  
 {{< fa brands twitter size=3x >}}
 </a>
@@ -316,7 +336,7 @@ print(np.round(accuracy_score(predicted_y, y_test),2))
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous"
  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0"></script>
-<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/logreg/" data-width="" data-numposts="5"></div>
+<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/posts/logreg/" data-width="750" data-numposts="5"></div>
 
 
 

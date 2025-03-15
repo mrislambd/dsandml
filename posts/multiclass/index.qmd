@@ -8,7 +8,7 @@ search: true
 lightbox: true
 image: multi.png
 listing: 
-    contents: "/../../dsandml"
+    contents: "/../../posts"
     max-items: 3
     type: grid
     categories: false
@@ -18,6 +18,23 @@ listing:
 format: 
     html: default
     ipynb: default
+    docx: 
+      toc: true
+      adsense:
+        enable-ads: false
+    epub:
+      toc: true
+      adsense:
+        enable-ads: false
+    pdf: 
+      toc: true
+      pdf-engine: pdflatex
+      adsense:
+        enable-ads: false
+      number-sections: false
+      colorlinks: true
+      cite-method: biblatex
+toc-depth: 4
 ---    
   
 ## Introduction {#intro}  
@@ -64,7 +81,7 @@ plt.show()
 
 These are algorithms that can directly handle multiple classes in their formulation:
 
-**a. [Decision Trees](/dsandml/decisiontree/index.qmd){style="text-decoration:none" target="_blank"}** (See more here)  
+**a. [Decision Trees](/posts/decisiontree/index.qmd){style="text-decoration:none" target="_blank"}** (See more here)  
 
 <p style="text-align: justify">
 Decision Trees can naturally handle multi-class classification tasks. At each split, the tree decides on a rule that best separates the data into groups. The terminal nodes (leaves) represent the class predictions.</p>
@@ -90,7 +107,7 @@ y_pred = clf.predict(X_test)
 print(classification_report(y_test, y_pred, target_names=iris.target_names))
 ```
 
-**b. [Random Forests](/dsandml/randomforest/index.qmd){style="text-decoration:none" target="_blank"}** (See more here)  
+**b. [Random Forests](/posts/randomforest/index.qmd){style="text-decoration:none" target="_blank"}** (See more here)  
 
 <p style="text-align: justify">
 Random Forests are ensembles of decision trees and can also naturally handle multi-class classification. They aggregate the predictions from multiple trees to make a final classification decision.</p>
@@ -108,7 +125,7 @@ y_pred = clf.predict(X_test)
 print(classification_report(y_test, y_pred, target_names=iris.target_names))
 ```
 
-**c. [Naive Bayes](/dsandml/naivebayes/index.qmd){style="text-decoration:none" target="_blank"}** (See more here)
+**c. [Naive Bayes](/posts/naivebayes/index.qmd){style="text-decoration:none" target="_blank"}** (See more here)
 
 <p style="text-align: justify">
 Naive Bayes is a probabilistic classifier based on Bayes' theorem, assuming that the features are independent. The algorithm calculates the probability of each class and predicts the one with the highest probability.</p>
@@ -126,7 +143,7 @@ y_pred = clf.predict(X_test)
 print(classification_report(y_test, y_pred, target_names=iris.target_names))
 ```
 
-**d. [K-Nearest Neighbors (KNN)](/dsandml/knn/index.qmd){style="text-decoration:none" target="_blank"}** (See more here)  
+**d. [K-Nearest Neighbors (KNN)](/posts/knn/index.qmd){style="text-decoration:none" target="_blank"}** (See more here)  
 
 <p style="text-align: justify">
 KNN is a non-parametric algorithm that classifies a data point based on the majority class of its k-nearest neighbors. It can handle multi-class problems by considering the most frequent class among the neighbors.</p>
@@ -156,7 +173,7 @@ This technique involves training one classifier per class. Each classifier is tr
 - **Advantages**: Simple and works well with many binary classifiers like logistic regression and support vector machines.
 - **Disadvantages**: Can become inefficient when there are many classes, since it requires training one model per class.  
 
-Example with [Logistic Regression](/dsandml/logreg/index.qmd){style="text-decoration:none" target="_blank"}  
+Example with [Logistic Regression](/posts/logreg/index.qmd){style="text-decoration:none" target="_blank"}  
 
 ```{python}
 from sklearn.linear_model import LogisticRegression
@@ -319,7 +336,7 @@ Multi-class classification is a critical aspect of many real-world applications,
 
 ::::{.columns}
 :::{.column width="33%"}
-<a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/multiclass/" target="_blank" style="color:#1877F2; text-decoration: none;">
+<a href="https://www.facebook.com/sharer.php?u=https://mrislambd.github.io/dsandml/posts/multiclass" target="_blank" style="color:#1877F2; text-decoration: none;">
  
 {{< fa brands facebook size=3x >}}
 </a>
@@ -327,7 +344,7 @@ Multi-class classification is a critical aspect of many real-world applications,
 :::
  
 :::{.column width="33%"}
-<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/multiclass/" target="_blank" style="color:#0077B5; text-decoration: none;">
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mrislambd.github.io/dsandml/posts/multiclass" target="_blank" style="color:#0077B5; text-decoration: none;">
  
 {{< fa brands linkedin size=3x >}}
 </a>
@@ -335,7 +352,7 @@ Multi-class classification is a critical aspect of many real-world applications,
 :::
  
 :::{.column width="33%"}
-<a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/multiclass/" target="_blank" style="color:#1DA1F2; text-decoration: none;">
+<a href="https://www.twitter.com/intent/tweet?url=https://mrislambd.github.io/dsandml/posts/multiclass" target="_blank" style="color:#1DA1F2; text-decoration: none;">
  
 {{< fa brands twitter size=3x >}}
 </a>
@@ -362,7 +379,7 @@ Multi-class classification is a critical aspect of many real-world applications,
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous"
  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0"></script>
-<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/multiclass/" data-width="800" data-numposts="5"></div>
+<div class="fb-comments" data-href="https://mrislambd.github.io/dsandml/posts/multiclass" data-width="750" data-numposts="5"></div>
 
 
 **You may also like**  
