@@ -5,6 +5,8 @@ author: "Rafiq Islam"
 categories: [Machine Learning, Data Science, Bayesian Inference, Bayesian Statistics, Statistics]
 citation: true
 lightbox: true
+aliases: 
+  - https://mrislambd.github.io/dsandml/bayesianclassification/
 image: Bayeslearn.png
 search: true
 listing: 

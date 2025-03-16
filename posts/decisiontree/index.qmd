@@ -5,6 +5,8 @@ author: Rafiq Islam
 categories: [Data Science, Machine Learning, Artificial Intelligence, Algorithms]
 citation: true
 search: true
+aliases: 
+  - https://mrislambd.github.io/dsandml/decisiontree/
 lightbox: true
 image: dtree.jpeg
 listing: 

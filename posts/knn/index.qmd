@@ -6,6 +6,8 @@ categories: [Data Science, Machine Learning, Artificial Intelligence]
 citation: true
 image: knn.jpeg
 search: true
+aliases: 
+  - https://mrislambd.github.io/dsandml/knn/
 lightbox: true
 listing: 
     contents: "/../../posts"
