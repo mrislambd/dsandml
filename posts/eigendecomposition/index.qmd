@@ -225,7 +225,7 @@ plt.show()
 
 ---
 
-💡 **Tip:** If your matrix isn’t diagonalizable, try **Singular Value Decomposition (SVD)** — it works for any matrix and generalizes many of the benefits of eigendecomposition.  
+**Tip:** If your matrix isn’t diagonalizable, try **Singular Value Decomposition (SVD)** — it works for any matrix and generalizes many of the benefits of eigendecomposition.  
 
 
 **Share on**  
