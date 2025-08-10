@@ -9,11 +9,15 @@ search: true
 </p>
 
 <p style="text-align: justify">
-    This page is my personal repository of most common and useful machine learning algorithms using Python and other data science tricks and tips.
+    This page is my personal repository of most common and useful machine learning algorithms using Python and other data science tricks and tip
 </p>  
 
 
-## **$\text{Data Science}$**  
+## Data Science Algebra  
+
+- **[Eigen Decomposition](/posts/eigendecomposition/index.qmd){target="_blank" style="text-decoration:none"}**  
+
+## **Data Science**  
 Data science involves extracting knowledge from structured and unstructured data. It combines principle from statistics, machine learning, data analysis, and domain knoledge to understand and interpret the data
 
 #### Data Collection \& Accuisition  
@@ -176,12 +180,15 @@ This usually includes the *[Descriptive Statistics](/posts/eda/index.qmd#discrip
 
 ## **$\text{Deep Learnings}$**  
 
-- [PyTorch](/posts/pytorch/index.qmd){target="_blank" style="text-decoration:none"}  
-- Artificial Neural Networks (ANN)  
-- Convolutional Neural Networks (CNN)  
-- Recurrent Neural Networks (RNN)  
-- Long Short-Term Memory (LSTM)  
-- Generative Adversarial Networks (GAN)  
+### **$\text{Artificial Neural Networks (ANN)}$**    
+
+- [Regression](/posts/ann-linreg/index.qmd){target="_blank" style="text-decoration:none"}  
+
+### **$\text{Convolutional Neural Networks (CNN)}$**     
+  
+### **$\text{Recurrent Neural Networks (RNN)}$**    
+### **$\text{Long Short-Term Memory (LSTM)}$**    
+### **$\text{Generative Adversarial Networks (GAN)}$**    
 
 ## **$\text{Model Evaluation and Fine Tuning}$**  
 

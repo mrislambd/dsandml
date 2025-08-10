@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mrislambd.github.io/index.html</loc>
-    <lastmod>2025-03-15T04:21:22.124Z</lastmod>
+    <lastmod>2025-08-10T15:47:02.857Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/corrandreg/index.html</loc>
@@ -46,7 +46,7 @@
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/svm/index.html</loc>
-    <lastmod>2025-03-15T03:32:31.024Z</lastmod>
+    <lastmod>2025-03-16T06:21:09.972Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/simplelinreg/index.html</loc>
@@ -70,7 +70,7 @@
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/bayesianclassification/index.html</loc>
-    <lastmod>2025-03-15T04:02:06.859Z</lastmod>
+    <lastmod>2025-03-16T06:22:19.533Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/datacollection/index.html</loc>
@@ -82,7 +82,7 @@
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/decisiontree/index.html</loc>
-    <lastmod>2025-03-15T03:58:32.023Z</lastmod>
+    <lastmod>2025-03-16T06:23:01.264Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/eda/index.html</loc>
@@ -94,7 +94,7 @@
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/knn/index.html</loc>
-    <lastmod>2025-03-15T03:51:31.055Z</lastmod>
+    <lastmod>2025-03-16T06:21:36.241Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/lda/index.html</loc>
@@ -111,5 +111,25 @@
   <url>
     <loc>https://mrislambd.github.io/codepages/titanic/index.html</loc>
     <lastmod>2024-11-11T06:36:31.852Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/posts/ann/index.html</loc>
+    <lastmod>2025-03-26T00:48:12.760Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/posts/ann-linreg/index.html</loc>
+    <lastmod>2025-03-26T01:41:50.838Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/posts/ann-classification1/index.html</loc>
+    <lastmod>2025-08-10T16:04:37.054Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/posts/DsMlAlgebra/index.html</loc>
+    <lastmod>2025-08-10T15:41:43.082Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/posts/eigendecomposition/index.html</loc>
+    <lastmod>2025-08-10T16:02:54.248Z</lastmod>
   </url>
 </urlset>
