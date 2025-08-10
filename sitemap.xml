@@ -1,103 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mrislambd.github.io/codepages/titanic/index.html</loc>
-    <lastmod>2025-03-16T06:23:47.796Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrislambd.github.io/posts/adaboost/index.html</loc>
-    <lastmod>2025-03-16T06:23:47.940Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrislambd.github.io/posts/biasvariance/index.html</loc>
-    <lastmod>2025-03-16T06:23:47.941Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrislambd.github.io/posts/multiclass/index.html</loc>
-    <lastmod>2025-03-16T06:23:48.018Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrislambd.github.io/posts/kmeans/index.html</loc>
-    <lastmod>2025-03-16T06:23:48.016Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrislambd.github.io/posts/randomforest/index.html</loc>
-    <lastmod>2025-03-16T06:23:48.024Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrislambd.github.io/posts/pca/index.html</loc>
-    <lastmod>2025-03-16T06:23:48.022Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrislambd.github.io/posts/pytorch/index.html</loc>
-    <lastmod>2025-03-16T06:23:48.023Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrislambd.github.io/posts/knn/index.html</loc>
-    <lastmod>2025-03-16T06:23:48.017Z</lastmod>
+    <loc>https://mrislambd.github.io/index.html</loc>
+    <lastmod>2025-08-10T16:30:25.791Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/eda/index.html</loc>
-    <lastmod>2025-03-16T06:23:48.015Z</lastmod>
+    <lastmod>2025-08-10T16:30:25.868Z</lastmod>
   </url>
   <url>
-    <loc>https://mrislambd.github.io/posts/datacollection/index.html</loc>
-    <lastmod>2025-03-16T06:23:47.942Z</lastmod>
+    <loc>https://mrislambd.github.io/posts/knn/index.html</loc>
+    <lastmod>2025-08-10T16:30:25.872Z</lastmod>
   </url>
   <url>
-    <loc>https://mrislambd.github.io/posts/logreg/index.html</loc>
-    <lastmod>2025-03-16T06:23:48.018Z</lastmod>
+    <loc>https://mrislambd.github.io/posts/pytorch/index.html</loc>
+    <lastmod>2025-08-10T16:30:25.878Z</lastmod>
   </url>
   <url>
-    <loc>https://mrislambd.github.io/index.html</loc>
-    <lastmod>2025-03-16T06:23:47.938Z</lastmod>
+    <loc>https://mrislambd.github.io/posts/pca/index.html</loc>
+    <lastmod>2025-08-10T16:30:25.877Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/regularization/index.html</loc>
-    <lastmod>2025-03-16T06:23:48.024Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrislambd.github.io/posts/lda/index.html</loc>
-    <lastmod>2025-03-16T06:23:48.018Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrislambd.github.io/posts/simplelinreg/index.html</loc>
-    <lastmod>2025-03-16T06:23:48.024Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrislambd.github.io/posts/classificationmetrics/index.html</loc>
-    <lastmod>2025-03-16T06:23:47.942Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrislambd.github.io/posts/bayesianclassification/index.html</loc>
-    <lastmod>2025-03-16T06:23:47.941Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrislambd.github.io/posts/polyreg/index.html</loc>
-    <lastmod>2025-03-16T06:23:48.022Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrislambd.github.io/posts/svm/index.html</loc>
-    <lastmod>2025-03-16T06:23:48.024Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrislambd.github.io/posts/gradientboosting/index.html</loc>
-    <lastmod>2025-03-16T06:23:48.016Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrislambd.github.io/posts/multiplelinreg/index.html</loc>
-    <lastmod>2025-03-16T06:23:48.020Z</lastmod>
+    <lastmod>2025-08-10T16:30:25.879Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/decisiontree/index.html</loc>
-    <lastmod>2025-03-16T06:23:47.944Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mrislambd.github.io/posts/dataengineering/index.html</loc>
-    <lastmod>2025-03-16T06:23:47.942Z</lastmod>
+    <lastmod>2025-08-10T16:30:25.801Z</lastmod>
   </url>
   <url>
     <loc>https://mrislambd.github.io/posts/naivebayes/index.html</loc>
-    <lastmod>2025-03-16T06:23:48.021Z</lastmod>
+    <lastmod>2025-08-10T16:30:25.876Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/posts/bayesianclassification/index.html</loc>
+    <lastmod>2025-08-10T16:30:25.797Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/posts/lda/index.html</loc>
+    <lastmod>2025-08-10T16:30:25.873Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/posts/biasvariance/index.html</loc>
+    <lastmod>2025-08-10T16:30:25.798Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/posts/logreg/index.html</loc>
+    <lastmod>2025-08-10T16:30:25.873Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/posts/polyreg/index.html</loc>
+    <lastmod>2025-08-10T16:30:25.877Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/posts/svm/index.html</loc>
+    <lastmod>2025-08-10T16:30:25.879Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/codepages/titanic/index.html</loc>
+    <lastmod>2025-08-10T16:30:25.637Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/posts/gradientboosting/index.html</loc>
+    <lastmod>2025-08-10T16:30:25.871Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/posts/eigendecomposition/index.html</loc>
+    <lastmod>2025-08-10T16:30:25.869Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/posts/randomforest/index.html</loc>
+    <lastmod>2025-08-10T16:30:25.879Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/posts/multiplelinreg/index.html</loc>
+    <lastmod>2025-08-10T16:30:25.875Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/posts/dataengineering/index.html</loc>
+    <lastmod>2025-08-10T16:30:25.799Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/posts/adaboost/index.html</loc>
+    <lastmod>2025-08-10T16:30:25.793Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/posts/simplelinreg/index.html</loc>
+    <lastmod>2025-08-10T16:30:25.879Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/posts/kmeans/index.html</loc>
+    <lastmod>2025-08-10T16:30:25.871Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/posts/ann-linreg/index.html</loc>
+    <lastmod>2025-08-10T16:30:25.794Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/posts/datacollection/index.html</loc>
+    <lastmod>2025-08-10T16:30:25.799Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/posts/ann-classification1/index.html</loc>
+    <lastmod>2025-08-10T16:30:25.794Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/posts/classificationmetrics/index.html</loc>
+    <lastmod>2025-08-10T16:30:25.798Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mrislambd.github.io/posts/multiclass/index.html</loc>
+    <lastmod>2025-08-10T16:30:25.873Z</lastmod>
   </url>
 </urlset>
