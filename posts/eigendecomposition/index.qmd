@@ -155,7 +155,7 @@ $$
 * For $\lambda = 5$: eigenvector $\mathbf{v}_1 = [1, 1]^T$
 * For $\lambda = 2$: eigenvector $\mathbf{v}_2 = [-1, 2]^T$
 
-3. **Form Q and Λ**:
+3. **Form Q and $\Lambda$**:
 
 $$
 Q = \begin{bmatrix} 1 & -1 \\ 1 & 2 \end{bmatrix}, \quad
